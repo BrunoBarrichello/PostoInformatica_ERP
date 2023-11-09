@@ -1,0 +1,12 @@
+﻿body {
+}
+
+
+/* sidebar */
+.sidebar {
+    background-color: var(--grey-color-dark);
+    /*overflow-y: scroll;*/
+    box-shadow: 0 0 1px var(--grey-color-light);
+    transition: all 0.5s ease;
+    margin-left:15px;
+}
