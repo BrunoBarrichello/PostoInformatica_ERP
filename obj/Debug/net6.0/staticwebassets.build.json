@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uy1ikq0YlQNSulieMG7XmcZoWgGQuzMrhGmUHkuVhPc=",
+  "Hash": "1jT05h707VRbsMIz8FWN/ytrU6GlkkI4SKPm/bRQ+2E=",
   "Source": "PostoInformatica_ERP",
   "BasePath": "_content/PostoInformatica_ERP",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptMenu.js",
+      "SourceId": "PostoInformatica_ERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
+      "BasePath": "_content/PostoInformatica_ERP",
+      "RelativePath": "js/_scriptMenu.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\_scriptMenu.js"
     },
     {
       "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\site.js",

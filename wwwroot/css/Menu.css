@@ -1,12 +1,89 @@
 ﻿body {
+    background-color: #f2f2f2;
 }
 
-
-/* sidebar */
-.sidebar {
-    background-color: var(--grey-color-dark);
-    /*overflow-y: scroll;*/
-    box-shadow: 0 0 1px var(--grey-color-light);
-    transition: all 0.5s ease;
-    margin-left:15px;
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+#cssmenu {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+}
+
+    #cssmenu ul ul {
+        display: none;
+    }
+
+    #cssmenu > ul > li > a {
+        padding: 10px 20px;
+        cursor: pointer;
+        z-index: 2;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333333;
+        background: #99b9d9; /* Alterado para um azul suave */
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    #cssmenu > ul > li.open > a {
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+    }
+
+    #cssmenu ul ul li a {
+        cursor: pointer;
+        border-bottom: 1px solid #e6e6e6;
+        border-left: 1px solid #e6e6e6;
+        border-right: 1px solid #e6e6e6;
+        padding: 10px 20px;
+        z-index: 1;
+        text-decoration: none;
+        font-size: 13px;
+        color: #333333;
+        background: #f2f2f2; /* Alterado para um cinza suave */
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    #cssmenu ul li.has-sub > a::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        right: 20px;
+        top: 50%;
+        margin-top: -2.5px;
+        border-top: 2px solid #333333;
+        border-left: 2px solid #333333;
+        transition: transform 0.3s ease;
+    }
+
+    #cssmenu ul li.has-sub.open > a::after {
+        transform: rotate(225deg);
+        border-top-color: #333333;
+        border-left-color: #333333;
+    }
+
+    #cssmenu ul li.has-sub:not(.open) > a::after {
+        transform: rotate(135deg);
+        border-top-color: #333333;
+        border-left-color: #333333;
+    }
+
+    #cssmenu ul ul li:hover > a,
+    #cssmenu ul ul li.open > a,
+    #cssmenu ul ul li.active > a {
+        background: #99b9d9; /* Alterado para um azul suave */
+        color: #333333;
+    }
