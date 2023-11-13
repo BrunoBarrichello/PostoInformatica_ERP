@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PostoInformatica_ERP.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 </head>
 <body>
-    <header>
+  @*   <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PostoInformatica_ERP</a>
@@ -31,57 +32,125 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> *@
 
-    <div class="row">
-        <div class="col-md-2" id="menuFrame">
-            <div id="cssmenu">
-                <ul class="nav nav-list" id="menuSideBar">
-                    
-                    <!--  CADASTROS -->
-                    <li class="active has-sub">
-                        <a href="#"><span>Cadastros</span></a>
-                        <ul>
-                            <li class="has-sub">
-                                <a href="#"><span>Entidades</span></a>
-                                <ul>
-                                    <li mid="cliente"><a asp-controller="CLIENTES" asp-action="Index">Clientes</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+    @* <div class="row">
+    <div class="col-md-2" id="menuFrame">
+    <div id="cssmenu">
+    <ul class="nav nav-list" id="menuSideBar">
 
-                    <!-- MOVIMENTAÇÕES -->
-                    <li class="active has-sub">
-                        <a href="#"><span>Comercial</span></a>
-                        <ul>
-                            <li><a href="javascript:void(0);"><span>Venda</span></a></li>
-                            <li><a href="javascript:void(0);"><span>Orçamento</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <!--  CADASTROS -->
+    <li class="active has-sub">
+    <a href="#"><span>Cadastros</span></a>
+    <ul>
+    <li class="has-sub">
+    <a href="#"><span>Entidades</span></a>
+    <ul>
+    <li mid="cliente"><a asp-controller="CLIENTES" asp-action="Index">Clientes</a></li>
+    </ul>
+    </li>
+    </ul>
+    </li>
 
-            </div>
-        </div>
-        <div class="col-md-10">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
+    <!-- MOVIMENTAÇÕES -->
+    <li class="active has-sub">
+    <a href="#"><span>Comercial</span></a>
+    <ul>
+    <li><a href="javascript:void(0);"><span>Venda</span></a></li>
+    <li><a href="javascript:void(0);"><span>Orçamento</span></a></li>
+    </ul>
+    </li>
+    </ul>
+
+    </div>
+    </div>
+    <div class="col-md-10">
+    <main role="main" class="pb-3">
+    @RenderBody()
+    </main>
+    </div>
+    </div> *@
+
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
     </div>
 
-    
+    <div class="side-bar">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - PostoInformatica_ERP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <header>
+            <div class="close-btn">
+                <!-- Trocar para btn-close se nao funcionar -->
+                <i class="fas fa-times">  </i>
+            </div>
+        </header>
+
+        <div class="menu">
+            @* <div class="item">
+                <a href="">
+                    <i class="fas fa-desktop"></i>Entidade
+                </a>
+            </div> *@
+            <div class="item">
+                <a class="sub-btn">
+                    <i class="fas fa-table"></i>Obras
+                    <i class="fas fa-angle-right dropdown"> </i>
+                </a>
+                <div class="sub-menu">
+                    <a href="" class="sub-item">Obra 1</a>
+                    <a href="" class="sub-item">Obra 2</a>
+                    <a href="" class="sub-item">Obra 3</a>
+                </div>
+            </div>
+            <div class="item">
+                <a href="">
+                    <i class="fas fa-th"></i>Forms
+                </a>
+            </div>
+            <div class="item">
+                <a href="">
+                    <i class="fas fa-cog"></i>Configurações
+                </a>
+            </div>
+            <div class="item">
+                <a href="">
+                    <i class="fas fa-info-circle"></i>Sobre
+                </a>
+            </div>
         </div>
-    </footer>
+
+    </div>
+
+    <div class="col-md-10">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".menu-btn").click(function () {
+                $(".side-bar").addClass("active");
+                $(".menu-btn").css("visibility", "hidden");
+            })
+
+            $(".close-btn").click(function () {
+                $(".side-bar").removeClass("active");
+                $(".menu-btn").css("visibility", "visible");
+            })
+
+            $(".sub-btn").click(function () {
+                $(this).next(".sub-menu").slideToggle();
+                $(this).find(".dropdown").toggleClass("rotate");
+            })
+        })
+    </script>
+
+    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/_scriptMenu.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/577a2a4a43.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
