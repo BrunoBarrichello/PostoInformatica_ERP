@@ -106,7 +106,7 @@ body {
 
 .side-bar {
     background: #1b1a1b;
-    width: 250px; /* Comentar e colocar col-md-2 para responsividade */
+    /*width: 250px;*/ /* Comentar e colocar col-md-2 para responsividade */
     left: -250px;
     height: 100vh;
     position: fixed;
