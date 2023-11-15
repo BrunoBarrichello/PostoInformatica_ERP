@@ -71,7 +71,7 @@
     </div>
     </div> *@
 
-    <div class="row">
+    @* <div class="row">
         <div class="div-menu-btn ">
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -121,6 +121,46 @@
                 @RenderBody()
             </main>
         </div>
+    </div> *@
+
+    <div class="row">
+        <div class="container_css add col-md-2" id="container_css">
+            <div class="brand">
+                <h3 class="mt-1">Posto ERP</h3>
+                <a href="#" id="toggle"><i class="bi bi-list"></i></a>
+            </div>
+            @* <div class="user">
+                <img src="img/logo.jpeg" alt="">
+                <div class="name">
+                    <h5>Alex Milton</h5>
+                    <span>Web Developer</span>
+                </div>
+            </div> *@
+            <div class="navbar">
+                <ul>
+                    <li><a href="#"><i class="bi bi-house"></i><span>DashBoard</span></a></li>
+                    <li><a href="#"><i class="bi bi-person"></i><span>User</span></a></li>
+                    <li><a href="#"><i class="bi bi-chat-right-text"></i><span>Message</span></a></li>
+                    <li><a href="#"><i class="bi bi-graph-up-arrow"></i><span>Analytics</span></a></li>
+                    <li><a href="#"><i class="bi bi-folder"></i><span>file manager</span></a></li>
+                    <li><a href="#"><i class="bi bi-cart"></i><span>Order</span></a></li>
+                    <li><a href="#"><i class="bi bi-heart"></i><span>WishList</span></a></li>
+                    <li><a href="#"><i class="bi bi-gear"></i><span>Setting</span></a></li>
+                </ul>
+            </div>
+
+            <div class="navbar">
+                <ul>
+                    <li><a href="#"><i class="bi bi-box-arrow-in-right"></i><span>Log Out</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="div-render-body col-md-10">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -130,26 +170,35 @@
     <script src="~/js/_scriptMenu.js" asp-append-version="true"></script>
 
     <script>
-        $(document).ready(function() {
-            $(".menu-btn").click(function () {
-                $(".div-menu-btn").addClass("col-md-2");
-                $(".div-render-body").addClass("col-md-10");
-                $(".side-bar").addClass("active");
-                $(".menu-btn").css("visibility", "hidden");
-            })
 
-            $(".close-btn").click(function () {
-                $(".div-menu-btn").removeClass("col-md-2");
-                $(".div-render-body").removeClass("col-md-10");
-                $(".side-bar").removeClass("active");
-                $(".menu-btn").css("visibility", "visible");
-            })
+        var toggle = document.getElementById("toggle");
+        var container_css = document.getElementById("container_css");
 
-            $(".sub-btn").click(function () {
-                $(this).next(".sub-menu").slideToggle();
-                $(this).find(".dropdown").toggleClass("rotate");
-            })
-        })
+        toggle.onclick = function () {
+            container_css.classList.toggle('active');
+        }
+
+
+        // $(document).ready(function() {
+        //     $(".menu-btn").click(function () {
+        //         $(".div-menu-btn").addClass("col-md-2");
+        //         $(".div-render-body").addClass("col-md-10");
+        //         $(".side-bar").addClass("active");
+        //         $(".menu-btn").css("visibility", "hidden");
+        //     })
+
+        //     $(".close-btn").click(function () {
+        //         $(".div-menu-btn").removeClass("col-md-2");
+        //         $(".div-render-body").removeClass("col-md-10");
+        //         $(".side-bar").removeClass("active");
+        //         $(".menu-btn").css("visibility", "visible");
+        //     })
+
+        //     $(".sub-btn").click(function () {
+        //         $(this).next(".sub-menu").slideToggle();
+        //         $(this).find(".dropdown").toggleClass("rotate");
+        //     })
+        // })
     </script>
 
     
