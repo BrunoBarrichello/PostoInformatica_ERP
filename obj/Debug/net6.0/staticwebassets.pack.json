@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PostoInformatica_ERP.bundle.scp.css"
     },
     {
+      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Menu.css",
       "PackagePath": "staticwebassets\\css\\Menu.css"
     },
@@ -23,6 +27,10 @@
     {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\win4.jpg",
       "PackagePath": "staticwebassets\\img\\win4.jpg"
+    },
+    {
+      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptLogin.js",
+      "PackagePath": "staticwebassets\\js\\_scriptLogin.js"
     },
     {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptMenu.js",
