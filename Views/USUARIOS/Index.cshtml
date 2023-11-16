@@ -1,0 +1,26 @@
+﻿@model USUARIO;
+
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Index";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<form asp-controller="USUARIOS" asp-action="Entrar" method="post">
+    <div class="mb-3">
+        <label for="Login" class="form-label">Login</label>
+        <input type="text" class="form-control" id="Login" asp-for="NOME" />
+    </div>
+    <div class="mb-3">
+        <label for="Senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="Senha" asp-for="SENHA" />
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+</form>
