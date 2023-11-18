@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sDUuIxI4dMycULtEAxgOv4AcfR+drmWAS05pcgv/szA=",
+  "Hash": "MPjp140tcfT5tFiN9xaXsgcfrW9/yvTrMpNjC1eqLc8=",
   "Source": "PostoInformatica_ERP",
   "BasePath": "_content/PostoInformatica_ERP",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PostoInformatica_ERP.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Cadastro.css",
+      "SourceId": "PostoInformatica_ERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
+      "BasePath": "_content/PostoInformatica_ERP",
+      "RelativePath": "css/Cadastro.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Cadastro.css"
     },
     {
       "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Login.css",
@@ -136,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\img\\logo.jpeg"
     },
     {
+      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\Posto_Logo_Preto.png",
+      "SourceId": "PostoInformatica_ERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
+      "BasePath": "_content/PostoInformatica_ERP",
+      "RelativePath": "img/Posto_Logo_Preto.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Posto_Logo_Preto.png"
+    },
+    {
       "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\win4.jpg",
       "SourceId": "PostoInformatica_ERP",
       "SourceType": "Discovered",
@@ -151,40 +185,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\win4.jpg"
-    },
-    {
-      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptLogin.js",
-      "SourceId": "PostoInformatica_ERP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
-      "BasePath": "_content/PostoInformatica_ERP",
-      "RelativePath": "js/_scriptLogin.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\_scriptLogin.js"
-    },
-    {
-      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptMenu.js",
-      "SourceId": "PostoInformatica_ERP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
-      "BasePath": "_content/PostoInformatica_ERP",
-      "RelativePath": "js/_scriptMenu.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\_scriptMenu.js"
     },
     {
       "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\site.js",

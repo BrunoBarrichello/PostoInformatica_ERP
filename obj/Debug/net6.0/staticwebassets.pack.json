@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PostoInformatica_ERP.bundle.scp.css"
     },
     {
+      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Cadastro.css",
+      "PackagePath": "staticwebassets\\css\\Cadastro.css"
+    },
+    {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\css\\Login.css",
       "PackagePath": "staticwebassets\\css\\Login.css"
     },
@@ -21,20 +25,16 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\Posto_Logo_Preto.png",
+      "PackagePath": "staticwebassets\\img\\Posto_Logo_Preto.png"
+    },
+    {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\logo.jpeg",
       "PackagePath": "staticwebassets\\img\\logo.jpeg"
     },
     {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\win4.jpg",
       "PackagePath": "staticwebassets\\img\\win4.jpg"
-    },
-    {
-      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptLogin.js",
-      "PackagePath": "staticwebassets\\js\\_scriptLogin.js"
-    },
-    {
-      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\_scriptMenu.js",
-      "PackagePath": "staticwebassets\\js\\_scriptMenu.js"
     },
     {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\js\\site.js",
