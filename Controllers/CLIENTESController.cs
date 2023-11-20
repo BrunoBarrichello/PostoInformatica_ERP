@@ -21,9 +21,37 @@ namespace PostoInformatica_ERP.Controllers
         // GET: CLIENTES
         public async Task<IActionResult> Index()
         {
-              return _context.Cliente != null ? 
-                          View(await _context.Cliente.ToListAsync()) :
-                          Problem("Entity set 'Contexto.Cliente'  is null.");
+              return View();
+        }
+
+        [HttpPost]
+        public IActionResult Entrar(CLIENTES clientes)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
+
+                    if (login != null)
+                    {
+                        if (login.SENHA == clientes.SENHA)
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+
+                    }
+
+                    TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por favor, tente novamente.";
+                }
+
+                return View("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos realizar seu login, tente novamente! {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: CLIENTES/Details/5
