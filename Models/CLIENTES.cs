@@ -130,7 +130,7 @@ namespace PostoInformatica_ERP.Models
 
         [Column("CLIENTES")]
         [Display(Name = "Código")]
-        public int CODIGO { get; set; }
+        public int? CODIGO { get; set; }
         
         [Column("LOGIN")]
         [Display(Name = "Login")]

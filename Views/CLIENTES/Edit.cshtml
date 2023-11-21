@@ -14,9 +14,164 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CNPJ_CPF" />
             <div class="form-group">
+                <label asp-for="RG_INSCRICAO" class="control-label"></label>
+                <input asp-for="RG_INSCRICAO" class="form-control" />
+                <span asp-validation-for="RG_INSCRICAO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="INSCRICAOMUNICIPAL" class="control-label"></label>
+                <input asp-for="INSCRICAOMUNICIPAL" class="form-control" />
+                <span asp-validation-for="INSCRICAOMUNICIPAL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NOME" class="control-label"></label>
+                <input asp-for="NOME" class="form-control" />
+                <span asp-validation-for="NOME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FANTASIA" class="control-label"></label>
+                <input asp-for="FANTASIA" class="form-control" />
+                <span asp-validation-for="FANTASIA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COLIGADA" class="control-label"></label>
+                <input asp-for="COLIGADA" class="form-control" />
+                <span asp-validation-for="COLIGADA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CEP" class="control-label"></label>
+                <input asp-for="CEP" class="form-control" />
+                <span asp-validation-for="CEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ENDERECO" class="control-label"></label>
+                <input asp-for="ENDERECO" class="form-control" />
+                <span asp-validation-for="ENDERECO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ENDERECO_COBRANCA" class="control-label"></label>
+                <input asp-for="ENDERECO_COBRANCA" class="form-control" />
+                <span asp-validation-for="ENDERECO_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NUMERO" class="control-label"></label>
+                <input asp-for="NUMERO" class="form-control" />
+                <span asp-validation-for="NUMERO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NUMERO_COBRANCA" class="control-label"></label>
+                <input asp-for="NUMERO_COBRANCA" class="form-control" />
+                <span asp-validation-for="NUMERO_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COMPLEMENTO" class="control-label"></label>
+                <input asp-for="COMPLEMENTO" class="form-control" />
+                <span asp-validation-for="COMPLEMENTO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COMPLEMENTO_COBRANCA" class="control-label"></label>
+                <input asp-for="COMPLEMENTO_COBRANCA" class="form-control" />
+                <span asp-validation-for="COMPLEMENTO_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAIRRO" class="control-label"></label>
+                <input asp-for="BAIRRO" class="form-control" />
+                <span asp-validation-for="BAIRRO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BAIRRO_COBRANCA" class="control-label"></label>
+                <input asp-for="BAIRRO_COBRANCA" class="form-control" />
+                <span asp-validation-for="BAIRRO_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CIDADE" class="control-label"></label>
+                <input asp-for="CIDADE" class="form-control" />
+                <span asp-validation-for="CIDADE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
+                <input asp-for="CIDADE_COBRANCA" class="form-control" />
+                <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CIDADE_IBGE" class="control-label"></label>
+                <input asp-for="CIDADE_IBGE" class="form-control" />
+                <span asp-validation-for="CIDADE_IBGE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ESTADO" class="control-label"></label>
+                <input asp-for="ESTADO" class="form-control" />
+                <span asp-validation-for="ESTADO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
+                <input asp-for="ESTADO_COBRANCA" class="form-control" />
+                <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CAIXA_POSTAL" class="control-label"></label>
+                <input asp-for="CAIXA_POSTAL" class="form-control" />
+                <span asp-validation-for="CAIXA_POSTAL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
+                <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control" />
+                <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PAIS" class="control-label"></label>
+                <input asp-for="PAIS" class="form-control" />
+                <span asp-validation-for="PAIS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FONE" class="control-label"></label>
+                <input asp-for="FONE" class="form-control" />
+                <span asp-validation-for="FONE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FONE_RAMAL" class="control-label"></label>
+                <input asp-for="FONE_RAMAL" class="form-control" />
+                <span asp-validation-for="FONE_RAMAL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CELULAR" class="control-label"></label>
+                <input asp-for="CELULAR" class="form-control" />
+                <span asp-validation-for="CELULAR" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="INTERNET" class="control-label"></label>
+                <input asp-for="INTERNET" class="form-control" />
+                <span asp-validation-for="INTERNET" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CONTATO" class="control-label"></label>
+                <input asp-for="CONTATO" class="form-control" />
+                <span asp-validation-for="CONTATO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EMAIL" class="control-label"></label>
+                <input asp-for="EMAIL" class="form-control" />
+                <span asp-validation-for="EMAIL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="COND_PAGAMENTO" class="control-label"></label>
+                <input asp-for="COND_PAGAMENTO" class="form-control" />
+                <span asp-validation-for="COND_PAGAMENTO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="CODIGO" class="control-label"></label>
                 <input asp-for="CODIGO" class="form-control" />
                 <span asp-validation-for="CODIGO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LOGIN" class="control-label"></label>
+                <input asp-for="LOGIN" class="form-control" />
+                <span asp-validation-for="LOGIN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SENHA" class="control-label"></label>
+                <input asp-for="SENHA" class="form-control" />
+                <span asp-validation-for="SENHA" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

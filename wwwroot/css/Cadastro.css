@@ -1,2 +1,16 @@
 ﻿body {
 }
+
+.control-label {
+    font-size: 0.975rem;
+}
+
+h11 {
+    font-size: 0.975rem;
+    color: red;
+    margin-left: 5px;
+}
+
+.div-input {
+    text-align: left;
+}
