@@ -36,6 +36,10 @@ namespace PostoInformatica_ERP.Models
         [Display(Name = "CEP")]
         public string? CEP { get; set; }
 
+        [Column("CEP_COBRANCA")]
+        [Display(Name = "CEP")]
+        public string? CEP_COBRANCA { get; set; }
+
         [Column("ENDERECO")]
         [Display(Name = "Endereço")]
         public string? ENDERECO { get; set; }
