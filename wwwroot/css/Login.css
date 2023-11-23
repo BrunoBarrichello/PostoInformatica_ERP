@@ -1,6 +1,6 @@
 ﻿/* Configs Gerais */
+
 * {
-    /*overflow: hidden;*/
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -16,177 +16,91 @@ body {
 /* Logo Marca */
 
 .img_logo {
-    width:45%;
+    width: 18%;
     border-radius:35px;
 }
 
-/* Fim da Logo Marca */
+/* Fim Logo Marca */
 
-/***************************************************************************************************************************************************************************************/
-
-/* Botão de Login */
-
-.button:not(.cadastrar) {
-    /*height: 40px;*/
-    width: 150px;
-    position: relative;
-    background-color: transparent;
-    cursor: pointer;
-    border: 2px solid #198754;
-    overflow: hidden;
-    border-radius: 30px;
-    color: #333;
-    transition: all 0.5s ease-in-out;
-    align-self: center;
+.container_login {
+    margin-top: 15vh;
+    background-color: #ffffff;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    width: 60%;
+    display: flex;
+    justify-content: center;
 }
 
-.btn-txt {
-    z-index: 1;
-    font-weight: 600;
-    letter-spacing: 2px;
+.background-esquerda {
+    background: linear-gradient(to top, #b5c8e6, #859dc1);
+    background-color: #859dc1;
 }
 
-.btn-txt {
-    font-variant-caps: all-small-caps;
+.espaco-top {
+    margin-top: 30px;
 }
 
-.type1::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: all 0.5s ease-in-out;
-    background-color: #198754;
-    border-radius: 30px;
-    visibility: hidden;
-    height: 10px;
-    width: 10px;
-    z-index: -1;
+.cor_texto {
+    color: #2c3a64;
+    font-weight: bold;
 }
 
-.button:hover {
-    color: #fff;
-    border: none;
+.texto-logo {
+    color: #56729a;
+    font-weight: bold;
 }
 
-.type1:hover::after {
-    visibility: visible;
-    transform: scale(100) translateX(2px);
+.texto-versao {
+    color: #8596c1;
+    font-size:larger;
+}
+
+.div-rodape {
+    margin: 25% 0% 2% 0%;
+}
+
+.texto-rodape {
+    color: #7a98c7;
+    font-weight: lighter;
+}
+
+.label-input {
+    font-size: 22px;
+    color: #526492;
+    font-weight: bold;
+}
+
+.input-login {
+    border-style: hidden;
+    border-bottom: 2px solid #2c3a64;
+}
+
+.div-input {
+    text-align: left;
+}
+
+.button-acessar {
+    margin-top: 45px;
+    padding: 8px 70px;
+    background-color: #0070c8;
+    color: #FFF;
+    border-style:hidden;
+}
+
+.button-cadastrar {
+    text-decoration: none;
+    margin-top: 45px;
+    padding: 8px 88px;
+    background-color: #859dc1;
+    color: #FFF;
+    border-style: hidden;
+}
+
+.button-cadastrar:hover {
+    color: #FFF;
 }
 
 .lbl_cadastrar {
-    text-transform: uppercase;
-    font-size: x-small;
+    font-size: smaller;
+    text-decoration:none;
 }
-
-/* Fim do Botão de Login */
-
-
-/* Botão cadastrar-se */
-
-.button.cadastrar {
-    /*height: 40px;*/
-    width: 150px;
-    position: relative;
-    background-color: transparent;
-    cursor: pointer;
-    border: 2px solid royalblue;
-    overflow: hidden;
-    border-radius: 30px;
-    color: #333;
-    transition: all 0.5s ease-in-out;
-    align-self: center;
-}
-
-.type2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    transition: all 0.5s ease-in-out;
-    background-color: royalblue;
-    border-radius: 30px;
-    visibility: hidden;
-    height: 10px;
-    width: 10px;
-    z-index: -1;
-}
-
-.button:hover .cadastrar {
-    color: #fff;
-    border: none;
-}
-
-.type2:hover::after {
-    visibility: visible;
-    transform: scale(100) translateX(2px);
-}
-/* Fim botão cadastrar-se */
-
-/***************************************************************************************************************************************************************************************/
-
-/* Inputs */
-
-.form-control {
-    margin: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    padding: 25px;
-    border-radius: 8px;
-}
-
-.title {
-    font-size: 28px;
-    font-weight: 800;
-}
-
-.input-field {
-    position: relative;
-    width: 100%;
-}
-
-.input {
-    margin-top: 15px;
-    width: 100%;
-    outline: none;
-    border-radius: 8px;
-    height: 40px;
-    border: 1.5px solid #808080;
-    background: transparent;
-    padding-left: 10px;
-}
-
-    .input:focus {
-        border: 1.5px solid #2d79f3;
-    }
-
-.input-field .label {
-    position: absolute;
-    top: 25px;
-    left: 15px;
-    color: #808080;
-    transition: all 0.3s ease;
-    pointer-events: none;
-    z-index: 2;
-}
-
-.input-field .input:focus ~ .label,
-.input-field .input:valid ~ .label {
-    top: 5px;
-    left: 5px;
-    font-size: 12px;
-    color: royalblue;
-    background-color: #ffffff;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-/* Fim dos Inputs */
-
-/***************************************************************************************************************************************************************************************/
-

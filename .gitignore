@@ -3,3 +3,14 @@
 *.dll
 *.cache
 *.pdb
+*.pdb
+*.dll
+*.props
+obj/Debug/net6.0/staticwebassets/msbuild.PostoInformatica_ERP.Microsoft.AspNetCore.StaticWebAssets.props
+obj/Debug/net6.0/staticwebassets.pack.json
+obj/Debug/net6.0/staticwebassets.development.json
+obj/Debug/net6.0/staticwebassets.build.json
+obj/Debug/net6.0/refint/PostoInformatica_ERP.dll
+obj/Debug/net6.0/ref/PostoInformatica_ERP.dll
+obj/Debug/net6.0/PostoInformatica_ERP.pdb
+obj/Debug/net6.0/PostoInformatica_ERP.dll

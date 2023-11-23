@@ -33,7 +33,7 @@ namespace PostoInformatica_ERP.Controllers
                 {
                     CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
 
-                    if (login != null)
+                    if (!string.IsNullOrEmpty(login.LOGIN))
                     {
                         if (login.SENHA == clientes.SENHA)
                         {

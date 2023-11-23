@@ -13,8 +13,83 @@
     </div>
 }
 
-<form class="form-control" asp-controller="CLIENTES" asp-action="Entrar" method="post">
-    <div class="justify-content-center text-center">
+<form class="row container_login" asp-controller="CLIENTES" asp-action="Entrar" method="post">
+
+    <div class="col-md-6 background-esquerda">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="cor_texto espaco-top">Bem-vindos a Posto Sistemas</h4>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="justify-content-center text-center">
+                <img class="img_logo" src="~/img/logo_hd.png" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="espaco-top texto-logo">Posto ERP</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="texto-versao">Versão 1.0.2024</h4>
+            </div>
+        </div>
+        <div class="row div-rodape">
+            <div class="col-md-12">
+                <h6 class="texto-rodape">Desenvolvido por Posto Informática.</h6>
+                <h6 class="texto-rodape">Todos os direitos reservados</h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="cor_texto espaco-top">Digite seu usuário e senha</h4>
+            </div>
+        </div>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-md-6 div-input">
+                <label asp-for="LOGIN" class="label-input">Usuário:</label>
+                <input asp-for="LOGIN" class="form-control form-control-sm input-login" />
+                <span asp-validation-for="LOGIN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-6 div-input">
+                <label asp-for="SENHA" class="label-input">Senha:</label>
+                <input type="password" asp-for="SENHA" class="form-control form-control-sm input-login" />
+                <span asp-validation-for="SENHA" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="button-acessar">
+                    <span class="">Acessar o sitema</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4"><hr /></div>
+
+            <div class="col-md-4"><label class="lbl_cadastrar">Não possui acesso?</label></div>
+
+            <div class="col-md-4"><hr /></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <a type="button" class="button-cadastrar" asp-controller="CLIENTES" asp-action="Create">
+                    <span>Cadastre-se</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @* <div class="justify-content-center text-center">
         <img class="img_logo" src="~/img/Posto_Logo_Preto.png" />
     </div>
 
@@ -53,5 +128,5 @@
     </div>
 
     <a style="z-index:9999" type="button" class="button type2 cadastrar" asp-controller="CLIENTES" asp-action="Create"><span class="btn-txt">INSCREVA-SE</span></a>
-
+ *@
 </form>
