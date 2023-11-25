@@ -18,3 +18,8 @@ Banco/POSTO.FDB
 *.pdb
 bin/
 obj/
+*.props
+*.json
+*.pdb
+*.dll
+*.dll
