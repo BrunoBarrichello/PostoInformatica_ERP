@@ -155,6 +155,10 @@ namespace PostoInformatica_ERP.Migrations
                         .HasColumnType("BLOB SUB_TYPE TEXT")
                         .HasColumnName("SENHA");
 
+                    b.Property<string>("VENDEDOR")
+                        .HasColumnType("BLOB SUB_TYPE TEXT")
+                        .HasColumnName("VENDEDOR");
+
                     b.HasKey("CNPJ_CPF");
 
                     b.ToTable("CLIENTES");

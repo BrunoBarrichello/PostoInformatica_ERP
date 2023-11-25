@@ -23,7 +23,7 @@ body {
 /* Fim Logo Marca */
 
 .container_login {
-    margin-top: 15vh;
+    margin-top: 5vh;
     background-color: #ffffff;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     width: 60%;
@@ -84,16 +84,19 @@ body {
     padding: 8px 70px;
     background-color: #0070c8;
     color: #FFF;
-    border-style:hidden;
+    border-style: hidden;
+    max-width: inherit;
 }
 
 .button-cadastrar {
+    max-width:inherit;
     text-decoration: none;
     margin-top: 45px;
     padding: 8px 88px;
     background-color: #859dc1;
     color: #FFF;
     border-style: hidden;
+    margin-bottom: 10px;
 }
 
 .button-cadastrar:hover {

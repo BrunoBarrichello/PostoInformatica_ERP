@@ -1,6 +1,12 @@
 ﻿body {
 }
 
+.bg-header-padrao {
+    background-color: #2c3a64;
+    color: #FFF;
+    /*text-align:left;*/
+}
+
 .control-label {
     font-size: 0.975rem;
     font-weight: 500;

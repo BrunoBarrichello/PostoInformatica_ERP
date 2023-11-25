@@ -144,5 +144,9 @@ namespace PostoInformatica_ERP.Models
         [Display(Name = "Senha")]
         public string? SENHA { get; set; }
 
+
+        [Column("VENDEDOR")]
+        [Display(Name = "Vendedor")]
+        public string? VENDEDOR { get; set; }
     }
 }

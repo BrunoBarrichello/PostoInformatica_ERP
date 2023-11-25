@@ -15,3 +15,6 @@ obj/Debug/net6.0/ref/PostoInformatica_ERP.dll
 obj/Debug/net6.0/PostoInformatica_ERP.pdb
 obj/Debug/net6.0/PostoInformatica_ERP.dll
 Banco/POSTO.FDB
+*.pdb
+bin/
+obj/

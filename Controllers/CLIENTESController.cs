@@ -32,14 +32,16 @@ namespace PostoInformatica_ERP.Controllers
                 if (ModelState.IsValid)
                 {
                     CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
-
-                    if (!string.IsNullOrEmpty(login.LOGIN))
+                    if (login != null)
                     {
-                        if (login.SENHA == clientes.SENHA)
+                        if (!string.IsNullOrEmpty(login.LOGIN))
                         {
-                            return RedirectToAction("Index", "Home");
-                        }
+                            if (login.SENHA == clientes.SENHA)
+                            {
+                                return RedirectToAction("Index", "Home");
+                            }
 
+                        }
                     }
 
                     TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por favor, tente novamente.";
@@ -83,7 +85,7 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA")] CLIENTES cLIENTES)
+        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES cLIENTES)
         {
             if (ModelState.IsValid)
             {
@@ -115,7 +117,7 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA")] CLIENTES cLIENTES)
+        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES cLIENTES)
         {
             if (id != cLIENTES.CNPJ_CPF)
             {

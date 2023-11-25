@@ -10,7 +10,7 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="container">
         <div class="card mt-5">
-            <div class="card-header">
+            <div class="card-header bg-header-padrao">
                 <label>Cadastro de Usuários</label>
             </div>
 
@@ -18,22 +18,30 @@
                 <div class="row align-items-end">
                     <div class="col-md-2 div-input">
                         <label class="control-label">Data Cadastro</label>
-                        <input type="date" class="form-control form-control-sm" value="@DateTime.Now" />
+                        <input type="date" class="form-control form-control-sm" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
                     </div>
 
-                    <div class="col-md-2 div-input">
+                    <div class="col-md-10 div-input">
+                        <label asp-for="VENDEDOR" class="control-label"></label>
+                        <input asp-for="VENDEDOR" class="form-control form-control-sm" />
+                        <span asp-validation-for="VENDEDOR" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row align-items-end">
+                    <div class="col-md-3 div-input">
                         <label asp-for="CNPJ_CPF" class="control-label"></label>
                         <input asp-for="CNPJ_CPF" class="form-control form-control-sm" />
                         <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
                     </div>
 
-                    <div class="col-md-2 div-input">
+                    <div class="col-md-3 div-input">
                         <label asp-for="RG_INSCRICAO" class="control-label"></label>
                         <input asp-for="RG_INSCRICAO" class="form-control form-control-sm" />
                         <span asp-validation-for="RG_INSCRICAO" class="text-danger"></span>
                     </div>
 
-                    <div class="col-md-2 div-input">
+                    <div class="col-md-3 div-input">
                         <label asp-for="INSCRICAOMUNICIPAL" class="control-label"></label>
                         <input asp-for="INSCRICAOMUNICIPAL" class="form-control form-control-sm" />
                         <span asp-validation-for="INSCRICAOMUNICIPAL" class="text-danger"></span>
@@ -44,7 +52,7 @@
                         <label class="control-label">Optante do Simples</label>
                     </div>
 
-                    <div class="col-md-2 div-input pb-1">
+                    <div class="col-md-1 div-input pb-1">
                         <input asp-for="COLIGADA" type="checkbox" />
                         <label asp-for="COLIGADA" class="control-label"></label>
                         <span asp-validation-for="COLIGADA" class="text-danger"></span>
@@ -83,7 +91,7 @@
                         <span asp-validation-for="NUMERO" class="text-danger"></span>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-md-3 div-input">
                         <label asp-for="COMPLEMENTO" class="control-label"></label>
@@ -167,7 +175,7 @@
                 </div>
 
                 <div class="card mt-3">
-                    <div class="card-header text-start">
+                    <div class="card-header bg-header-padrao text-start">
                         <label> Dados para cobrança:</label>
                     </div>
 
@@ -206,33 +214,33 @@
                     </div>
                 </div>
 
-                
-                
+
+
                 <div class="div-input">
                     <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
                     <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" />
                     <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
                 </div>
-                
-                
+
+
                 <div class="div-input">
                     <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
                     <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" />
                     <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
                 </div>
-                
+
                 <div class="div-input">
                     <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
                     <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" />
                     <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
                 </div>
-                
+
                 <div class="div-input">
                     <label asp-for="COND_PAGAMENTO" class="control-label"></label>
                     <input asp-for="COND_PAGAMENTO" class="form-control form-control-sm" />
                     <span asp-validation-for="COND_PAGAMENTO" class="text-danger"></span>
                 </div>
-                
+
                 <div class="div-input">
                     <label asp-for="CODIGO" class="control-label"></label>
                     <input asp-for="CODIGO" class="form-control form-control-sm" />
