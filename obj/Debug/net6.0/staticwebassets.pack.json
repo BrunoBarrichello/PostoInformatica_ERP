@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\img\\logo.jpeg"
     },
     {
+      "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\logo_hd.png",
+      "PackagePath": "staticwebassets\\img\\logo_hd.png"
+    },
+    {
       "Id": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\win4.jpg",
       "PackagePath": "staticwebassets\\img\\win4.jpg"
     },

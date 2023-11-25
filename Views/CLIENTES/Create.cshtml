@@ -8,10 +8,16 @@
 
 <form asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="container">
+    <div class="mx-5">
         <div class="card mt-5">
             <div class="card-header bg-header-padrao">
                 <label>Cadastro de Usuários</label>
+            </div>
+
+            <div class="div-input d-none">
+                <label asp-for="CODIGO" class="control-label"></label>
+                <input asp-for="CODIGO" class="form-control form-control-sm" />
+                <span asp-validation-for="CODIGO" class="text-danger"></span>
             </div>
 
             <div class="card-body">
@@ -211,55 +217,67 @@
                                 <span asp-validation-for="BAIRRO_COBRANCA" class="text-danger"></span>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-7 div-input">
+                                <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
+                                <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" />
+                                <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-1 div-input">
+                                <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
+                                <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" />
+                                <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-2 div-input">
+                                <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
+                                <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" />
+                                <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-2 div-input">
+                                <label asp-for="COND_PAGAMENTO" class="control-label"></label>
+                                <select asp-for="COND_PAGAMENTO" class="form-select form-select-sm">
+                                    <option value="A">A Vista</option>
+                                    <option value="B">Boleto</option>
+                                    <option value="C">Cartão</option>
+                                </select>
+                                <span asp-validation-for="COND_PAGAMENTO" class="text-danger"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <div class="card mt-3">
+                    <div class="card-header bg-header-padrao text-start">
+                        <label> Dados para acesso:</label>
+                    </div>
 
-
-                <div class="div-input">
-                    <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
-                    <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" />
-                    <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 div-input">
+                                <label asp-for="LOGIN" class="control-label"></label>
+                                <input asp-for="LOGIN" required autocomplete="new-password" class="form-control form-control-sm" />
+                                <span asp-validation-for="LOGIN" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3 div-input">
+                                <label asp-for="SENHA" class="control-label"></label>
+                                <input type="password" asp-for="SENHA" required autocomplete="new-password" class="form-control form-control-sm" />
+                                <span asp-validation-for="SENHA" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-3 div-input">
+                                <label class="control-label">Confirme sua senha</label>
+                                <input type="password" required autocomplete="new-password" class="form-control form-control-sm" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-
-                <div class="div-input">
-                    <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
-                    <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" />
-                    <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
-                </div>
-
-                <div class="div-input">
-                    <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
-                    <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" />
-                    <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
-                </div>
-
-                <div class="div-input">
-                    <label asp-for="COND_PAGAMENTO" class="control-label"></label>
-                    <input asp-for="COND_PAGAMENTO" class="form-control form-control-sm" />
-                    <span asp-validation-for="COND_PAGAMENTO" class="text-danger"></span>
-                </div>
-
-                <div class="div-input">
-                    <label asp-for="CODIGO" class="control-label"></label>
-                    <input asp-for="CODIGO" class="form-control form-control-sm" />
-                    <span asp-validation-for="CODIGO" class="text-danger"></span>
-                </div>
-                <div class="div-input">
-                    <label asp-for="LOGIN" class="control-label"></label>
-                    <input asp-for="LOGIN" class="form-control form-control-sm" />
-                    <span asp-validation-for="LOGIN" class="text-danger"></span>
-                </div>
-                <div class="div-input">
-                    <label asp-for="SENHA" class="control-label"></label>
-                    <input asp-for="SENHA" class="form-control form-control-sm" />
-                    <span asp-validation-for="SENHA" class="text-danger"></span>
-                </div>
                 <div class="div-input">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
-
 
             </div>
         </div>

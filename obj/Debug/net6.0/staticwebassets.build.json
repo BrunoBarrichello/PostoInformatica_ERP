@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MPjp140tcfT5tFiN9xaXsgcfrW9/yvTrMpNjC1eqLc8=",
+  "Hash": "YOf/qN61nPU+wxyhbI3f+Rckmw3Dt3HWmzsggN7nNqc=",
   "Source": "PostoInformatica_ERP",
   "BasePath": "_content/PostoInformatica_ERP",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.jpeg"
+    },
+    {
+      "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\logo_hd.png",
+      "SourceId": "PostoInformatica_ERP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\",
+      "BasePath": "_content/PostoInformatica_ERP",
+      "RelativePath": "img/logo_hd.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo_hd.png"
     },
     {
       "Identity": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\wwwroot\\img\\Posto_Logo_Preto.png",
