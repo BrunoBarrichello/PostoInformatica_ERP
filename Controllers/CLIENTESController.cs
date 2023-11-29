@@ -92,7 +92,7 @@ namespace PostoInformatica_ERP.Controllers
                 CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
                 CLIENTES cnpj_cpf = _context.Cliente.FirstOrDefault(x => x.CNPJ_CPF == clientes.CNPJ_CPF);
                 
-                if (login == null)
+                if (login == null && cnpj_cpf == null)
                 {
                     _context.Add(clientes);
                     await _context.SaveChangesAsync();
@@ -100,7 +100,17 @@ namespace PostoInformatica_ERP.Controllers
                 }
                 else
                 {
-                    TempData["MensagemErro"] = $"Nome de usuário já utilizado.";
+                    if (login != null)
+                    {
+                        TempData["MensagemErro"] = $"Nome de usuário já utilizado.";
+                    }
+
+                    if (cnpj_cpf != null)
+                    {
+                        TempData["MensagemErro"] += $"CPF/CNPJ já utilizado.";
+                    }
+
+                    //continuar daqui
                 }
                 
                 

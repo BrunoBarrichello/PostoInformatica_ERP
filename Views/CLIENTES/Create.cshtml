@@ -21,11 +21,11 @@
                 <label>Cadastro de Usuários</label>
             </div>
 
-            <div class="div-input">
+            @* <div class="div-input">
                 <label asp-for="CODIGO" class="control-label"></label>
                 <input asp-for="CODIGO" class="form-control form-control-sm" />
                 <span asp-validation-for="CODIGO" class="text-danger"></span>
-            </div>
+            </div> *@
 
             <div class="card-body">
                 <div class="row align-items-end">
@@ -44,7 +44,7 @@
                 <div class="row align-items-end">
                     <div class="col-md-3 div-input">
                         <label asp-for="CNPJ_CPF" class="control-label"></label>
-                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" id="CNPJ_CPF" maxlength="14" />
+                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" required id="CNPJ_CPF" maxlength="14" />
                         <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
                     </div>
 
