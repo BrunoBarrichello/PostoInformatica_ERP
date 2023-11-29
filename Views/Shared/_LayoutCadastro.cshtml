@@ -26,6 +26,42 @@
 
     <script>
 
+        $(document).ready(function () {
+            /* Inputs que aceitam apenas números */
+            apenasNumeros("#CNPJ_CPF");
+            apenasNumeros("#RG_INSCRICAO");
+            apenasNumeros("#INSCRICAOMUNICIPAL");
+            apenasNumeros("#NUMERO");
+            apenasNumeros("#CIDADE_IBGE");
+            apenasNumeros("#CAIXA_POSTAL");
+            apenasNumeros("#CAIXA_POSTAL_COBRANCA");
+            apenasNumeros("#FONE");
+            apenasNumeros("#FONE_RAMAL");
+            apenasNumeros("#CELULAR");
+            apenasNumeros("#NUMERO_COBRANCA");
+
+            /* Inputs com máscara de CEP */
+            mascaraCEP("#CEP");
+            mascaraCEP("#CEP_COBRANCA");
+        });
+            
+        function apenasNumeros(id_elemento) {
+            $(id_elemento).on('input', function () {
+                $(this).val($(this).val().replace(/\D/g, ''));
+            });
+        }
+
+        function mascaraCEP(selector) {
+            $(selector).on('input', function () {
+                let valorCEP = $(this).val().replace(/\D/g, '');
+
+                if (valorCEP.length > 5) {
+                    valorCEP = valorCEP.substring(0, 5) + '-' + valorCEP.substring(5, valorCEP.length);
+                }
+
+                $(this).val(valorCEP);
+            });
+        }
 
     </script>
 

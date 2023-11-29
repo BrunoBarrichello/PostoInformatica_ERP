@@ -21,7 +21,7 @@ namespace PostoInformatica_ERP.Controllers
         // GET: CLIENTES
         public async Task<IActionResult> Index()
         {
-              return View();
+            return View();
         }
 
         [HttpPost]
@@ -64,14 +64,14 @@ namespace PostoInformatica_ERP.Controllers
                 return NotFound();
             }
 
-            var cLIENTES = await _context.Cliente
+            var clientes = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.CNPJ_CPF == id);
-            if (cLIENTES == null)
+            if (clientes == null)
             {
                 return NotFound();
             }
 
-            return View(cLIENTES);
+            return View(clientes);
         }
 
         // GET: CLIENTES/Create
@@ -85,15 +85,27 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES cLIENTES)
+        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES clientes)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(cLIENTES);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
+                CLIENTES cnpj_cpf = _context.Cliente.FirstOrDefault(x => x.CNPJ_CPF == clientes.CNPJ_CPF);
+                
+                if (login == null)
+                {
+                    _context.Add(clientes);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    TempData["MensagemErro"] = $"Nome de usuário já utilizado.";
+                }
+                
+                
             }
-            return View(cLIENTES);
+            return View(clientes);
         }
 
         // GET: CLIENTES/Edit/5
@@ -104,12 +116,12 @@ namespace PostoInformatica_ERP.Controllers
                 return NotFound();
             }
 
-            var cLIENTES = await _context.Cliente.FindAsync(id);
-            if (cLIENTES == null)
+            var clientes = await _context.Cliente.FindAsync(id);
+            if (clientes == null)
             {
                 return NotFound();
             }
-            return View(cLIENTES);
+            return View(clientes);
         }
 
         // POST: CLIENTES/Edit/5
@@ -117,9 +129,9 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES cLIENTES)
+        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES clientes)
         {
-            if (id != cLIENTES.CNPJ_CPF)
+            if (id != clientes.CNPJ_CPF)
             {
                 return NotFound();
             }
@@ -128,12 +140,12 @@ namespace PostoInformatica_ERP.Controllers
             {
                 try
                 {
-                    _context.Update(cLIENTES);
+                    _context.Update(clientes);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CLIENTESExists(cLIENTES.CNPJ_CPF))
+                    if (!CLIENTESExists(clientes.CNPJ_CPF))
                     {
                         return NotFound();
                     }
@@ -144,7 +156,7 @@ namespace PostoInformatica_ERP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(cLIENTES);
+            return View(clientes);
         }
 
         // GET: CLIENTES/Delete/5
@@ -155,14 +167,14 @@ namespace PostoInformatica_ERP.Controllers
                 return NotFound();
             }
 
-            var cLIENTES = await _context.Cliente
+            var clientes = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.CNPJ_CPF == id);
-            if (cLIENTES == null)
+            if (clientes == null)
             {
                 return NotFound();
             }
 
-            return View(cLIENTES);
+            return View(clientes);
         }
 
         // POST: CLIENTES/Delete/5
@@ -174,19 +186,19 @@ namespace PostoInformatica_ERP.Controllers
             {
                 return Problem("Entity set 'Contexto.Cliente'  is null.");
             }
-            var cLIENTES = await _context.Cliente.FindAsync(id);
-            if (cLIENTES != null)
+            var clientes = await _context.Cliente.FindAsync(id);
+            if (clientes != null)
             {
-                _context.Cliente.Remove(cLIENTES);
+                _context.Cliente.Remove(clientes);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CLIENTESExists(string id)
         {
-          return (_context.Cliente?.Any(e => e.CNPJ_CPF == id)).GetValueOrDefault();
+            return (_context.Cliente?.Any(e => e.CNPJ_CPF == id)).GetValueOrDefault();
         }
     }
 }

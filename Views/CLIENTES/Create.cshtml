@@ -5,6 +5,13 @@
     ViewData["Title"] = "Create";
 }
 
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger">
+        <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
 
 <form asp-action="Create">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -14,7 +21,7 @@
                 <label>Cadastro de Usuários</label>
             </div>
 
-            <div class="div-input d-none">
+            <div class="div-input">
                 <label asp-for="CODIGO" class="control-label"></label>
                 <input asp-for="CODIGO" class="form-control form-control-sm" />
                 <span asp-validation-for="CODIGO" class="text-danger"></span>
@@ -29,7 +36,7 @@
 
                     <div class="col-md-10 div-input">
                         <label asp-for="VENDEDOR" class="control-label"></label>
-                        <input asp-for="VENDEDOR" class="form-control form-control-sm" />
+                        <input asp-for="VENDEDOR" class="form-control form-control-sm" maxlength="14" />
                         <span asp-validation-for="VENDEDOR" class="text-danger"></span>
                     </div>
                 </div>
@@ -37,29 +44,30 @@
                 <div class="row align-items-end">
                     <div class="col-md-3 div-input">
                         <label asp-for="CNPJ_CPF" class="control-label"></label>
-                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" />
+                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" id="CNPJ_CPF" maxlength="14" />
                         <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="RG_INSCRICAO" class="control-label"></label>
-                        <input asp-for="RG_INSCRICAO" class="form-control form-control-sm" />
+                        <input asp-for="RG_INSCRICAO" class="form-control form-control-sm" id="RG_INSCRICAO" maxlength="15" />
                         <span asp-validation-for="RG_INSCRICAO" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="INSCRICAOMUNICIPAL" class="control-label"></label>
-                        <input asp-for="INSCRICAOMUNICIPAL" class="form-control form-control-sm" />
+                        <input asp-for="INSCRICAOMUNICIPAL" class="form-control form-control-sm" id="INSCRICAOMUNICIPAL" maxlength="14" />
                         <span asp-validation-for="INSCRICAOMUNICIPAL" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2 div-input pb-1">
-                        <input type="checkbox" />
-                        <label class="control-label">Optante do Simples</label>
+                        <input asp-for="OPTANTE_SIMPLES" type="checkbox" value="S" />
+                        <label asp-for="OPTANTE_SIMPLES" class="control-label">Optante do Simples</label>
+                        <span asp-validation-for="OPTANTE_SIMPLES" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-1 div-input pb-1">
-                        <input asp-for="COLIGADA" type="checkbox" />
+                        <input asp-for="COLIGADA" type="checkbox" value="S"/>
                         <label asp-for="COLIGADA" class="control-label"></label>
                         <span asp-validation-for="COLIGADA" class="text-danger"></span>
                     </div>
@@ -68,12 +76,12 @@
                 <div class="row">
                     <div class="col-md-6 div-input">
                         <label asp-for="NOME" class="control-label"></label>
-                        <input asp-for="NOME" class="form-control form-control-sm" />
+                        <input asp-for="NOME" class="form-control form-control-sm" maxlength="60" />
                         <span asp-validation-for="NOME" class="text-danger"></span>
                     </div>
                     <div class="col-md-6 div-input">
                         <label asp-for="FANTASIA" class="control-label"></label>
-                        <input asp-for="FANTASIA" class="form-control form-control-sm" />
+                        <input asp-for="FANTASIA" class="form-control form-control-sm" maxlength="100" />
                         <span asp-validation-for="FANTASIA" class="text-danger"></span>
                     </div>
                 </div>
@@ -81,19 +89,19 @@
                 <div class="row">
                     <div class="col-md-2 div-input">
                         <label asp-for="CEP" class="control-label"></label>
-                        <input asp-for="CEP" class="form-control form-control-sm" />
+                        <input asp-for="CEP" class="form-control form-control-sm" id="CEP" maxlength="9" />
                         <span asp-validation-for="CEP" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-8 div-input">
                         <label asp-for="ENDERECO" class="control-label"></label>
-                        <input asp-for="ENDERECO" class="form-control form-control-sm" />
+                        <input asp-for="ENDERECO" class="form-control form-control-sm" maxlength="60" />
                         <span asp-validation-for="ENDERECO" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2 div-input">
                         <label asp-for="NUMERO" class="control-label"></label>
-                        <input asp-for="NUMERO" class="form-control form-control-sm" />
+                        <input asp-for="NUMERO" class="form-control form-control-sm" id="NUMERO" maxlength="11" />
                         <span asp-validation-for="NUMERO" class="text-danger"></span>
                     </div>
                 </div>
@@ -101,31 +109,31 @@
                 <div class="row">
                     <div class="col-md-3 div-input">
                         <label asp-for="COMPLEMENTO" class="control-label"></label>
-                        <input asp-for="COMPLEMENTO" class="form-control form-control-sm" />
+                        <input asp-for="COMPLEMENTO" class="form-control form-control-sm" maxlength="30" />
                         <span asp-validation-for="COMPLEMENTO" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="BAIRRO" class="control-label"></label>
-                        <input asp-for="BAIRRO" class="form-control form-control-sm" />
+                        <input asp-for="BAIRRO" class="form-control form-control-sm" maxlength="30" />
                         <span asp-validation-for="BAIRRO" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="CIDADE" class="control-label"></label>
-                        <input asp-for="CIDADE" class="form-control form-control-sm" />
+                        <input asp-for="CIDADE" class="form-control form-control-sm" maxlength="30" />
                         <span asp-validation-for="CIDADE" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2 div-input">
                         <label asp-for="CIDADE_IBGE" class="control-label"></label>
-                        <input asp-for="CIDADE_IBGE" class="form-control form-control-sm" />
+                        <input asp-for="CIDADE_IBGE" class="form-control form-control-sm" id="CIDADE_IBGE" maxlength="7" />
                         <span asp-validation-for="CIDADE_IBGE" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-1 div-input">
                         <label asp-for="ESTADO" class="control-label"></label>
-                        <input asp-for="ESTADO" class="form-control form-control-sm" />
+                        <input asp-for="ESTADO" class="form-control form-control-sm" id="ESTADO" maxlength="2" />
                         <span asp-validation-for="ESTADO" class="text-danger"></span>
                     </div>
                 </div>
@@ -133,31 +141,31 @@
                 <div class="row">
                     <div class="col-md-2 div-input">
                         <label asp-for="CAIXA_POSTAL" class="control-label"></label>
-                        <input asp-for="CAIXA_POSTAL" class="form-control form-control-sm" />
+                        <input asp-for="CAIXA_POSTAL" class="form-control form-control-sm" id="CAIXA_POSTAL" maxlength="8" />
                         <span asp-validation-for="CAIXA_POSTAL" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2 div-input">
                         <label asp-for="PAIS" class="control-label"></label>
-                        <input asp-for="PAIS" class="form-control form-control-sm" />
+                        <input asp-for="PAIS" class="form-control form-control-sm" maxlength="60" />
                         <span asp-validation-for="PAIS" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="FONE" class="control-label"></label>
-                        <input asp-for="FONE" class="form-control form-control-sm" />
+                        <input asp-for="FONE" class="form-control form-control-sm" id="FONE" maxlength="15" />
                         <span asp-validation-for="FONE" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-2 div-input">
                         <label asp-for="FONE_RAMAL" class="control-label"></label>
-                        <input asp-for="FONE_RAMAL" class="form-control form-control-sm" />
+                        <input asp-for="FONE_RAMAL" class="form-control form-control-sm" id="FONE_RAMAL" maxlength="3" />
                         <span asp-validation-for="FONE_RAMAL" class="text-danger"></span>
                     </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="CELULAR" class="control-label"></label>
-                        <input asp-for="CELULAR" class="form-control form-control-sm" />
+                        <input asp-for="CELULAR" class="form-control form-control-sm" id="CELULAR" maxlength="15" />
                         <span asp-validation-for="CELULAR" class="text-danger"></span>
                     </div>
                 </div>
@@ -165,17 +173,17 @@
                 <div class="row">
                     <div class="col-md-4 div-input">
                         <label asp-for="INTERNET" class="control-label"></label>
-                        <input asp-for="INTERNET" class="form-control form-control-sm" />
+                        <input asp-for="INTERNET" class="form-control form-control-sm" maxlength="200" />
                         <span asp-validation-for="INTERNET" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 div-input">
                         <label asp-for="CONTATO" class="control-label"></label>
-                        <input asp-for="CONTATO" class="form-control form-control-sm" />
+                        <input asp-for="CONTATO" class="form-control form-control-sm" maxlength="25" />
                         <span asp-validation-for="CONTATO" class="text-danger"></span>
                     </div>
                     <div class="col-md-4 div-input">
                         <label asp-for="EMAIL" class="control-label"></label>
-                        <input asp-for="EMAIL" class="form-control form-control-sm" />
+                        <input asp-for="EMAIL" class="form-control form-control-sm" maxlength="200" />
                         <span asp-validation-for="EMAIL" class="text-danger"></span>
                     </div>
                 </div>
@@ -189,31 +197,31 @@
                         <div class="row">
                             <div class="col-md-2 div-input">
                                 <label asp-for="CEP_COBRANCA" class="control-label"></label>
-                                <input asp-for="CEP_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="CEP_COBRANCA" class="form-control form-control-sm" id="CEP_COBRANCA" maxlength="9" />
                                 <span asp-validation-for="CEP_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-3 div-input">
                                 <label asp-for="ENDERECO_COBRANCA" class="control-label"></label>
-                                <input asp-for="ENDERECO_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="ENDERECO_COBRANCA" class="form-control form-control-sm" maxlength="60" />
                                 <span asp-validation-for="ENDERECO_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-2 div-input">
                                 <label asp-for="NUMERO_COBRANCA" class="control-label"></label>
-                                <input asp-for="NUMERO_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="NUMERO_COBRANCA" class="form-control form-control-sm" id="NUMERO_COBRANCA" maxlength="11" />
                                 <span asp-validation-for="NUMERO_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-2 div-input">
                                 <label asp-for="COMPLEMENTO_COBRANCA" class="control-label"></label>
-                                <input asp-for="COMPLEMENTO_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="COMPLEMENTO_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="COMPLEMENTO_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-3 div-input">
                                 <label asp-for="BAIRRO_COBRANCA" class="control-label"></label>
-                                <input asp-for="BAIRRO_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="BAIRRO_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="BAIRRO_COBRANCA" class="text-danger"></span>
                             </div>
                         </div>
@@ -221,19 +229,19 @@
                         <div class="row">
                             <div class="col-md-7 div-input">
                                 <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
-                                <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-1 div-input">
                                 <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
-                                <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" maxlength="2" />
                                 <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-2 div-input">
                                 <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
-                                <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" />
+                                <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" id="CAIXA_POSTAL_COBRANCA" maxlength="8" />
                                 <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
                             </div>
 
@@ -259,24 +267,28 @@
                         <div class="row">
                             <div class="col-md-6 div-input">
                                 <label asp-for="LOGIN" class="control-label"></label>
-                                <input asp-for="LOGIN" required autocomplete="new-password" class="form-control form-control-sm" />
+                                <input asp-for="LOGIN" required autocomplete="new-password" class="form-control form-control-sm" maxlength="20" />
                                 <span asp-validation-for="LOGIN" class="text-danger"></span>
                             </div>
                             <div class="col-md-3 div-input">
                                 <label asp-for="SENHA" class="control-label"></label>
-                                <input type="password" asp-for="SENHA" required autocomplete="new-password" class="form-control form-control-sm" />
+                                <input type="password" asp-for="SENHA" required autocomplete="new-password" class="form-control form-control-sm" maxlength="18" />
                                 <span asp-validation-for="SENHA" class="text-danger"></span>
                             </div>
                             <div class="col-md-3 div-input">
                                 <label class="control-label">Confirme sua senha</label>
-                                <input type="password" required autocomplete="new-password" class="form-control form-control-sm" />
+                                <input type="password" required autocomplete="new-password" class="form-control form-control-sm" maxlength="20" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="div-input">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                        <button type="submit" class="btn btn-lg btn-success">
+                            <span>Confirmar</span>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -284,8 +296,10 @@
     </div>
 </form>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="row">
+    <div class="col-md-12">
+        <label class="">Já possui cadastro?</label> <a asp-action="Index">Entrar</a>
+    </div>
 </div>
 
 @section Scripts {

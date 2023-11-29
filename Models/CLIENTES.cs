@@ -117,7 +117,7 @@ namespace PostoInformatica_ERP.Models
         public string? CELULAR { get; set; }
 
         [Column("INTERNET")]
-        [Display(Name = "Internet")]
+        [Display(Name = "Site")]
         public string? INTERNET { get; set; }
 
         [Column("CONTATO")]
