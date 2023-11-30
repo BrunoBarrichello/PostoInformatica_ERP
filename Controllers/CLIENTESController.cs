@@ -77,7 +77,8 @@ namespace PostoInformatica_ERP.Controllers
         // GET: CLIENTES/Create
         public IActionResult Create()
         {
-            return View();
+            var model = new CLIENTES();
+            return View(model);
         }
 
         // POST: CLIENTES/Create
@@ -85,36 +86,40 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES clientes)
+        public async Task<IActionResult> Create([Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR,OPTANTE_SIMPLES")] CLIENTES clientes)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
-                CLIENTES cnpj_cpf = _context.Cliente.FirstOrDefault(x => x.CNPJ_CPF == clientes.CNPJ_CPF);
-                
-                if (login == null && cnpj_cpf == null)
-                {
-                    _context.Add(clientes);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    if (login != null)
-                    {
-                        TempData["MensagemErro"] = $"Nome de usuário já utilizado.";
-                    }
-
-                    if (cnpj_cpf != null)
-                    {
-                        TempData["MensagemErro"] += $"CPF/CNPJ já utilizado.";
-                    }
-
-                    //continuar daqui
-                }
-                
-                
+                return View(clientes);
             }
+
+            CLIENTES dadosCliente = _context.Cliente
+                .FirstOrDefault(x => x.LOGIN == clientes.LOGIN || x.CNPJ_CPF == clientes.CNPJ_CPF);
+
+            clientes.OPTANTE_SIMPLES = clientes.OPTANTE_SIMPLES == "S" ? "S" : "N";
+            clientes.COLIGADA = clientes.COLIGADA == "S" ? "S" : "N";
+
+            if (dadosCliente == null)
+            {
+                _context.Add(clientes);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            List<string> mensagemErro = new List<string>();
+
+            if (dadosCliente.LOGIN == clientes.LOGIN)
+            {
+                mensagemErro.Add("Nome de usuário já utilizado.");
+            }
+
+            if (dadosCliente.CNPJ_CPF == clientes.CNPJ_CPF)
+            {
+                mensagemErro.Add("CPF/CNPJ já utilizado.");
+            }
+
+            TempData["MensagemErro"] = string.Join("<br>", mensagemErro);
+
             return View(clientes);
         }
 
@@ -139,7 +144,7 @@ namespace PostoInformatica_ERP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR")] CLIENTES clientes)
+        public async Task<IActionResult> Edit(string id, [Bind("CNPJ_CPF,RG_INSCRICAO,INSCRICAOMUNICIPAL,NOME,FANTASIA,COLIGADA,CEP,CEP_COBRANCA,ENDERECO,ENDERECO_COBRANCA,NUMERO,NUMERO_COBRANCA,COMPLEMENTO,COMPLEMENTO_COBRANCA,BAIRRO,BAIRRO_COBRANCA,CIDADE,CIDADE_COBRANCA,CIDADE_IBGE,ESTADO,ESTADO_COBRANCA,CAIXA_POSTAL,CAIXA_POSTAL_COBRANCA,PAIS,FONE,FONE_RAMAL,CELULAR,INTERNET,CONTATO,EMAIL,COND_PAGAMENTO,CODIGO,LOGIN,SENHA,VENDEDOR,OPTANTE_SIMPLES")] CLIENTES clientes)
         {
             if (id != clientes.CNPJ_CPF)
             {

@@ -137,7 +137,7 @@ namespace PostoInformatica_ERP.Models
         public int? CODIGO { get; set; }
         
         [Column("LOGIN")]
-        [Display(Name = "Login")]
+        [Display(Name = "Nome de Usuário")]
         public string? LOGIN { get; set; }
 
         [Column("SENHA")]

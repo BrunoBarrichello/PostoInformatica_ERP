@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="~/PostoInformatica_ERP.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
           integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 
@@ -19,53 +22,10 @@
             @RenderBody()
         </main>
     </div>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script>
-
-        $(document).ready(function () {
-            /* Inputs que aceitam apenas números */
-            apenasNumeros("#CNPJ_CPF");
-            apenasNumeros("#RG_INSCRICAO");
-            apenasNumeros("#INSCRICAOMUNICIPAL");
-            apenasNumeros("#NUMERO");
-            apenasNumeros("#CIDADE_IBGE");
-            apenasNumeros("#CAIXA_POSTAL");
-            apenasNumeros("#CAIXA_POSTAL_COBRANCA");
-            apenasNumeros("#FONE");
-            apenasNumeros("#FONE_RAMAL");
-            apenasNumeros("#CELULAR");
-            apenasNumeros("#NUMERO_COBRANCA");
-
-            /* Inputs com máscara de CEP */
-            mascaraCEP("#CEP");
-            mascaraCEP("#CEP_COBRANCA");
-        });
-            
-        function apenasNumeros(id_elemento) {
-            $(id_elemento).on('input', function () {
-                $(this).val($(this).val().replace(/\D/g, ''));
-            });
-        }
-
-        function mascaraCEP(selector) {
-            $(selector).on('input', function () {
-                let valorCEP = $(this).val().replace(/\D/g, '');
-
-                if (valorCEP.length > 5) {
-                    valorCEP = valorCEP.substring(0, 5) + '-' + valorCEP.substring(5, valorCEP.length);
-                }
-
-                $(this).val(valorCEP);
-            });
-        }
-
-    </script>
-
     @await RenderSectionAsync("Scripts", required: false)
-
+    
 </body>
 </html>

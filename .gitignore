@@ -24,3 +24,4 @@ obj/
 *.dll
 *.dll
 bin/Debug/net6.0/PostoInformatica_ERP.dll
+Banco/POSTO.FDB
