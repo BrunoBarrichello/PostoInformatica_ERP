@@ -13,6 +13,7 @@ namespace PostoInformatica_ERP.Models
 
         public DbSet<CLIENTES> Cliente { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+        public DbSet<OBRAS> OBRAS { get; set; }
 
     }
 }

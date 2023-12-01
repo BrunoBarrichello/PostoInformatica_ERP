@@ -96,11 +96,13 @@ namespace PostoInformatica_ERP.Controllers
             CLIENTES dadosCliente = _context.Cliente
                 .FirstOrDefault(x => x.LOGIN == clientes.LOGIN || x.CNPJ_CPF == clientes.CNPJ_CPF);
 
-            clientes.OPTANTE_SIMPLES = clientes.OPTANTE_SIMPLES == "S" ? "S" : "N";
-            clientes.COLIGADA = clientes.COLIGADA == "S" ? "S" : "N";
+            
 
             if (dadosCliente == null)
             {
+                clientes.OPTANTE_SIMPLES = clientes.OPTANTE_SIMPLES == "S" ? "S" : "N";
+                clientes.COLIGADA = clientes.COLIGADA == "S" ? "S" : "N";
+
                 _context.Add(clientes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
