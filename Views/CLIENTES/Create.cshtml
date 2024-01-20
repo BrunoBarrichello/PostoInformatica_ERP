@@ -27,13 +27,6 @@
             <div class="card-header bg-header-padrao">
                 <label>Cadastro de Usuários</label>
             </div>
-
-            @* <div class="div-input">
-            <label asp-for="CODIGO" class="control-label"></label>
-            <input asp-for="CODIGO" class="form-control form-control-sm" />
-            <span asp-validation-for="CODIGO" class="text-danger"></span>
-            </div> *@
-
             <div class="card-body">
                 <div class="row align-items-end">
                     <div class="col-md-2 div-input">
@@ -49,34 +42,22 @@
                 </div>
 
                 <div class="row align-items-end">
-                    <div class="col-md-3 div-input">
+                    <div class="col-md-4 div-input">
                         <label asp-for="CNPJ_CPF" class="control-label"></label><h11>*</h11>
                         <input asp-for="CNPJ_CPF" class="form-control form-control-sm" required id="CNPJ_CPF" maxlength="14" />
                         <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
                     </div>
 
-                    <div class="col-md-3 div-input">
+                    <div class="col-md-4 div-input">
                         <label asp-for="RG_INSCRICAO" class="control-label"></label><h11>*</h11>
                         <input asp-for="RG_INSCRICAO" class="form-control form-control-sm" required id="RG_INSCRICAO" maxlength="15" />
                         <span asp-validation-for="RG_INSCRICAO" class="text-danger"></span>
                     </div>
 
-                    <div class="col-md-3 div-input">
+                    <div class="col-md-4 div-input">
                         <label asp-for="INSCRICAOMUNICIPAL" class="control-label"></label>
                         <input asp-for="INSCRICAOMUNICIPAL" class="form-control form-control-sm" id="INSCRICAOMUNICIPAL" maxlength="14" />
                         <span asp-validation-for="INSCRICAOMUNICIPAL" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-2 div-input pb-1">
-                        <input name="OPTANTE_SIMPLES" type="checkbox" value="S" checked="@(Model.OPTANTE_SIMPLES == "S")" />
-                        <label asp-for="OPTANTE_SIMPLES" class="control-label">Optante do Simples</label>
-                        <span asp-validation-for="OPTANTE_SIMPLES" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-1 div-input pb-1">
-                        <input name="COLIGADA" type="checkbox" value="S" checked="@(Model.COLIGADA == "S")" />
-                        <label asp-for="COLIGADA" class="control-label"></label>
-                        <span asp-validation-for="COLIGADA" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -178,17 +159,12 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-4 div-input">
-                        <label asp-for="INTERNET" class="control-label"></label>
-                        <input asp-for="INTERNET" class="form-control form-control-sm" maxlength="200" />
-                        <span asp-validation-for="INTERNET" class="text-danger"></span>
-                    </div>
-                    <div class="col-md-4 div-input">
+                    <div class="col-md-6 div-input">
                         <label asp-for="CONTATO" class="control-label"></label><h11>*</h11>
                         <input asp-for="CONTATO" class="form-control form-control-sm" required maxlength="25" />
                         <span asp-validation-for="CONTATO" class="text-danger"></span>
                     </div>
-                    <div class="col-md-4 div-input">
+                    <div class="col-md-6 div-input">
                         <label asp-for="EMAIL" class="control-label"></label>
                         <input asp-for="EMAIL" class="form-control form-control-sm" maxlength="200" />
                         <span asp-validation-for="EMAIL" class="text-danger"></span>
@@ -201,6 +177,13 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 div-input" style="display:inline-flex;">
+                                <input type="checkbox" class="form-check" id="utilizaMesmoEndereco" name="utilizaMesmoEndereco" value="S" onclick="utilizaEnderecoCadastrado();" style="margin-right:5px" />
+                                <label class="control-label" for="utilizaMesmoEndereco">Utilizar mesmo endereço cadastrado</label>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-2 div-input">
                                 <label asp-for="CEP_COBRANCA" class="control-label"></label>
@@ -234,7 +217,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-7 div-input">
+                            <div class="col-md-8 div-input">
                                 <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
                                 <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
@@ -246,20 +229,10 @@
                                 <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
                             </div>
 
-                            <div class="col-md-2 div-input">
+                            <div class="col-md-3 div-input">
                                 <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
                                 <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" id="CAIXA_POSTAL_COBRANCA" maxlength="8" />
                                 <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
-                            </div>
-
-                            <div class="col-md-2 div-input">
-                                <label asp-for="COND_PAGAMENTO" class="control-label"></label>
-                                <select asp-for="COND_PAGAMENTO" class="form-select form-select-sm">
-                                    <option value="A">A Vista</option>
-                                    <option value="B">Boleto</option>
-                                    <option value="C">Cartão</option>
-                                </select>
-                                <span asp-validation-for="COND_PAGAMENTO" class="text-danger"></span>
                             </div>
                         </div>
                     </div>
@@ -363,6 +336,40 @@
 
             $(this).val(valorCEP);
         });
+    }
+
+    function utilizaEnderecoCadastrado() {
+        if ($("#utilizaMesmoEndereco").val() == "S") {
+            $("#CEP_COBRANCA").val($("#CEP").val())
+            $("#CEP_COBRANCA").focus();
+            $("#CEP_COBRANCA").blur();
+            $("#CEP_COBRANCA").prop("readonly", true)
+        }
+    }
+
+    $("#CEP_COBRANCA").on("blur", function () {
+        preencherEnderecoPorCEP("CEP", "ENDERECO_COBRANCA", "COMPLEMENTO_COBRANCA", "BAIRRO_COBRANCA", "CIDADE_COBRANCA", "CIDADE_IBGE", "ESTADO_COBRANCA");
+    });
+
+    $("#CEP").on("blur", function () {
+        preencherEnderecoPorCEP("CEP", "ENDERECO", "COMPLEMENTO", "BAIRRO", "CIDADE", "CIDADE_IBGE", "ESTADO");
+    });
+
+    function preencherEnderecoPorCEP(cepInputId, logradouroId, complementoId, bairroId, cidadeId, ibgeId, estadoId) {
+        var cep = $("#" + cepInputId).val();
+
+        if (cep) { // Verifique se o campo CEP não está vazio
+            $.get("https://viacep.com.br/ws/" + cep + "/json/", function (data) {
+                if (!data.erro) {
+                    $("#" + logradouroId).val(data.logradouro);
+                    $("#" + complementoId).val(data.complemento);
+                    $("#" + bairroId).val(data.bairro);
+                    $("#" + cidadeId).val(data.localidade);
+                    $("#" + ibgeId).val(data.ibge);
+                    $("#" + estadoId).val(data.uf);
+                }
+            });
+        }
     }
 
 </script>

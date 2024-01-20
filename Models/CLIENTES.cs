@@ -125,7 +125,7 @@ namespace PostoInformatica_ERP.Models
         public string? CONTATO { get; set; }
 
         [Column("EMAIL")]
-        [Display(Name = "E-mail")]
+        [Display(Name = "E-mail Contato")]
         public string? EMAIL { get; set; }
 
         [Column("COND_PAGAMENTO")]

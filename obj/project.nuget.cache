@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eMC3rfeqArBNUJzdamCLkiNUDNd/ANoJiV45vXuITSTeKAnrLpvvepIAx9nUH50i893jD7KZleWfFAAUcBenFg==",
+  "dgSpecHash": "llQxSiI2Pb8FgbKGKzvrSBtF8h4q32xHyplEJn73yONQ6BKZ8swDtBatJQkprUP9y/MRLXqyrwYIs7gS4Lb6Lw==",
   "success": true,
   "projectFilePath": "C:\\Sistemas\\GitHub\\PostoInformatica_ERP\\PostoInformatica_ERP\\PostoInformatica_ERP.csproj",
   "expectedPackageFiles": [
@@ -237,7 +237,11 @@
     "C:\\Users\\Bruno\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Bruno\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Bruno\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Bruno\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Bruno\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
+    "C:\\Users\\Bruno\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
   ],
   "logs": []
 }
