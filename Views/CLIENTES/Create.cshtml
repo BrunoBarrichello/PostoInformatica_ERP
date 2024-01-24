@@ -19,7 +19,6 @@
     As senhas não coincidem! Por favor, verifique.
 </div>
 
-
 <form asp-action="Create" id="vForm_Cadastro">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="mx-5">
@@ -100,6 +99,19 @@
                         <input asp-for="COMPLEMENTO" class="form-control form-control-sm" maxlength="30" />
                         <span asp-validation-for="COMPLEMENTO" class="text-danger"></span>
                     </div>
+                    <div class="col-md-1 div-input">
+                        <label asp-for="ESTADO" class="control-label"></label><h11>*</h11>
+                        <select asp-for="ESTADO" class="form-select form-select-sm" id="ESTADO" required>
+                            <option>Selecione o estado</option>
+                        </select>
+                        <span asp-validation-for="ESTADO" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-3 div-input">
+                        <label asp-for="CIDADE" class="control-label"></label><h11>*</h11>
+                        <select asp-for="CIDADE" class="form-select form-select-sm" id="CIDADE" required disabled></select>
+                        <span asp-validation-for="CIDADE" class="text-danger"></span>
+                    </div>
 
                     <div class="col-md-3 div-input">
                         <label asp-for="BAIRRO" class="control-label"></label><h11>*</h11>
@@ -107,22 +119,10 @@
                         <span asp-validation-for="BAIRRO" class="text-danger"></span>
                     </div>
 
-                    <div class="col-md-3 div-input">
-                        <label asp-for="CIDADE" class="control-label"></label><h11>*</h11>
-                        <input asp-for="CIDADE" class="form-control form-control-sm" required maxlength="30" />
-                        <span asp-validation-for="CIDADE" class="text-danger"></span>
-                    </div>
-
                     <div class="col-md-2 div-input">
                         <label asp-for="CIDADE_IBGE" class="control-label"></label>
-                        <input asp-for="CIDADE_IBGE" class="form-control form-control-sm" id="CIDADE_IBGE" maxlength="7" />
+                        <input asp-for="CIDADE_IBGE" class="form-control form-control-sm" id="CIDADE_IBGE" maxlength="7" readonly />
                         <span asp-validation-for="CIDADE_IBGE" class="text-danger"></span>
-                    </div>
-
-                    <div class="col-md-1 div-input">
-                        <label asp-for="ESTADO" class="control-label"></label><h11>*</h11>
-                        <input asp-for="ESTADO" class="form-control form-control-sm" id="ESTADO" required maxlength="2" />
-                        <span asp-validation-for="ESTADO" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -191,7 +191,7 @@
                                 <span asp-validation-for="CEP_COBRANCA" class="text-danger"></span>
                             </div>
 
-                            <div class="col-md-3 div-input">
+                            <div class="col-md-8 div-input">
                                 <label asp-for="ENDERECO_COBRANCA" class="control-label"></label>
                                 <input asp-for="ENDERECO_COBRANCA" class="form-control form-control-sm" maxlength="60" />
                                 <span asp-validation-for="ENDERECO_COBRANCA" class="text-danger"></span>
@@ -202,11 +202,27 @@
                                 <input asp-for="NUMERO_COBRANCA" class="form-control form-control-sm" id="NUMERO_COBRANCA" maxlength="11" />
                                 <span asp-validation-for="NUMERO_COBRANCA" class="text-danger"></span>
                             </div>
+                        </div>
 
-                            <div class="col-md-2 div-input">
+                        <div class="row">
+                            <div class="col-md-3 div-input">
                                 <label asp-for="COMPLEMENTO_COBRANCA" class="control-label"></label>
                                 <input asp-for="COMPLEMENTO_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="COMPLEMENTO_COBRANCA" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-1 div-input">
+                                <label asp-for="ESTADO_COBRANCA" class="control-label"></label><h11>*</h11>
+                                <select asp-for="ESTADO_COBRANCA" class="form-select form-select-sm" id="ESTADO_COBRANCA" required>
+                                    <option>Selecione o estado</option>
+                                </select>
+                                <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-3 div-input">
+                                <label asp-for="CIDADE_COBRANCA" class="control-label"></label><h11>*</h11>
+                                <select asp-for="CIDADE_COBRANCA" class="form-select form-select-sm" id="CIDADE_COBRANCA" required disabled></select>
+                                <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
                             </div>
 
                             <div class="col-md-3 div-input">
@@ -214,22 +230,8 @@
                                 <input asp-for="BAIRRO_COBRANCA" class="form-control form-control-sm" maxlength="30" />
                                 <span asp-validation-for="BAIRRO_COBRANCA" class="text-danger"></span>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-8 div-input">
-                                <label asp-for="CIDADE_COBRANCA" class="control-label"></label>
-                                <input asp-for="CIDADE_COBRANCA" class="form-control form-control-sm" maxlength="30" />
-                                <span asp-validation-for="CIDADE_COBRANCA" class="text-danger"></span>
-                            </div>
-
-                            <div class="col-md-1 div-input">
-                                <label asp-for="ESTADO_COBRANCA" class="control-label"></label>
-                                <input asp-for="ESTADO_COBRANCA" class="form-control form-control-sm" maxlength="2" />
-                                <span asp-validation-for="ESTADO_COBRANCA" class="text-danger"></span>
-                            </div>
-
-                            <div class="col-md-3 div-input">
+                            <div class="col-md-2 div-input">
                                 <label asp-for="CAIXA_POSTAL_COBRANCA" class="control-label"></label>
                                 <input asp-for="CAIXA_POSTAL_COBRANCA" class="form-control form-control-sm" id="CAIXA_POSTAL_COBRANCA" maxlength="8" />
                                 <span asp-validation-for="CAIXA_POSTAL_COBRANCA" class="text-danger"></span>
@@ -290,6 +292,7 @@
 
 <script>
 
+    /* Lógica para verificar se as senhas coincidem */
     $('#vForm_Cadastro').submit(function (event) {
         if ($("#senha_1").val() != $("#senha_2").val()) {
             $("#div_senha_divergente").show();
@@ -301,6 +304,24 @@
     });
 
     $(document).ready(function () {
+
+        /* Carrega todos os estados assim que a página carrega */
+        $.ajax({
+            url: 'https://servicodados.ibge.gov.br/api/v1/localidades/estados',
+            method: 'GET',
+            success: function (data) {
+                // Ordenar os dados por nome do estado
+                data.sort(function (a, b) {
+                    return a.nome.localeCompare(b.nome);
+                });
+
+                // Adicionar estados ordenados ao select
+                data.forEach(function (uf) {
+                    $('#ESTADO').append(`<option value="${uf.sigla}">${uf.nome}</option>`);
+                    $('#ESTADO_COBRANCA').append(`<option value="${uf.sigla}">${uf.nome}</option>`);
+                });
+            }
+        });
 
         /* Inputs que aceitam apenas números */
         apenasNumeros("#CNPJ_CPF");
@@ -318,6 +339,11 @@
         /* Inputs com máscara de CEP */
         mascaraCEP("#CEP");
         mascaraCEP("#CEP_COBRANCA");
+    });
+
+    $('#CIDADE').change(function () {
+        var codigoIbge = $(this).val();
+        $('#CIDADE_IBGE').val(codigoIbge);
     });
 
     function apenasNumeros(id_elemento) {
@@ -339,22 +365,44 @@
     }
 
     function utilizaEnderecoCadastrado() {
-        if ($("#utilizaMesmoEndereco").val() == "S") {
-            $("#CEP_COBRANCA").val($("#CEP").val())
-            $("#CEP_COBRANCA").focus();
-            $("#CEP_COBRANCA").blur();
-            $("#CEP_COBRANCA").prop("readonly", true)
+        if ($("#utilizaMesmoEndereco").is(":checked")) {
+            var estado = $("#ESTADO").val();
+            var cidade = $("#CIDADE").val();
+
+            $("#CEP_COBRANCA").val($("#CEP").val());
+            $("#ENDERECO_COBRANCA").val($("#ENDERECO").val());
+            $("#COMPLEMENTO_COBRANCA").val($("#COMPLEMENTO").val());
+            $("#BAIRRO_COBRANCA").val($("#BAIRRO").val());
+            $("#NUMERO_COBRANCA").val($("#NUMERO").val());
+            $("#CAIXA_POSTAL_COBRANCA").val($("#CAIXA_POSTAL").val());
+            $("#CEP_COBRANCA").prop("readonly", true);
+
+            $("#ESTADO_COBRANCA").val(estado).change();
+
+            // Definir um callback para quando as cidades forem carregadas
+            cidadeIbgeTemporario = cidade;
+        } else {
+            $("#CEP_COBRANCA").val("");
+            $("#ENDERECO_COBRANCA").val("");
+            $("#COMPLEMENTO_COBRANCA").val("");
+            $("#BAIRRO_COBRANCA").val("");
+            $("#CIDADE_COBRANCA").val("");
+            $("#ESTADO_COBRANCA").val("");
+            $("#NUMERO_COBRANCA").val("");
+            $("#CAIXA_POSTAL_COBRANCA").val("");
+            $("#CEP_COBRANCA").prop("readonly", false);
         }
     }
 
     $("#CEP_COBRANCA").on("blur", function () {
-        preencherEnderecoPorCEP("CEP", "ENDERECO_COBRANCA", "COMPLEMENTO_COBRANCA", "BAIRRO_COBRANCA", "CIDADE_COBRANCA", "CIDADE_IBGE", "ESTADO_COBRANCA");
+        preencherEnderecoPorCEP("CEP_COBRANCA", "ENDERECO_COBRANCA", "COMPLEMENTO_COBRANCA", "BAIRRO_COBRANCA", "CIDADE_COBRANCA", "CIDADE_IBGE", "ESTADO_COBRANCA");
     });
 
     $("#CEP").on("blur", function () {
         preencherEnderecoPorCEP("CEP", "ENDERECO", "COMPLEMENTO", "BAIRRO", "CIDADE", "CIDADE_IBGE", "ESTADO");
     });
 
+    var cidadeIbgeTemporario = null; // Variável para armazenar temporariamente o código IBGE da cidade
     function preencherEnderecoPorCEP(cepInputId, logradouroId, complementoId, bairroId, cidadeId, ibgeId, estadoId) {
         var cep = $("#" + cepInputId).val();
 
@@ -364,12 +412,64 @@
                     $("#" + logradouroId).val(data.logradouro);
                     $("#" + complementoId).val(data.complemento);
                     $("#" + bairroId).val(data.bairro);
-                    $("#" + cidadeId).val(data.localidade);
-                    $("#" + ibgeId).val(data.ibge);
-                    $("#" + estadoId).val(data.uf);
+                    $("#" + estadoId).val(data.uf).change();
+
+                    cidadeIbgeTemporario = data.ibge; // Armazenar o código IBGE da cidade
                 }
             });
         }
     }
+
+    $('#ESTADO').change(function () {
+        var uf = $(this).val();
+        $('#CIDADE').empty().append('<option value="">Selecione a cidade</option>');
+
+        if (uf) {
+            $.ajax({
+                url: `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`,
+                method: 'GET',
+                success: function (data) {
+                    $('#CIDADE').removeAttr('disabled');
+                    data.forEach(function (cidade) {
+                        $('#CIDADE').append(`<option value="${cidade.id}">${cidade.nome}</option>`);
+                    });
+
+                    // Após carregar as cidades, selecionar a cidade com base no código IBGE armazenado
+                    if (cidadeIbgeTemporario) {
+                        $('#CIDADE').val(cidadeIbgeTemporario).change();
+                        cidadeIbgeTemporario = null; // Limpar a variável temporária
+                    }
+                }
+            });
+        } else {
+            $('#CIDADE').attr('disabled', 'disabled');
+        }
+    });
+
+    $('#ESTADO_COBRANCA').change(function () {
+        var uf = $(this).val();
+        $('#CIDADE_COBRANCA').empty().append('<option value="">Selecione a cidade</option>');
+
+        if (uf) {
+            $.ajax({
+                url: `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${uf}/municipios`,
+                method: 'GET',
+                success: function (data) {
+                    $('#CIDADE_COBRANCA').removeAttr('disabled');
+                    data.forEach(function (cidade) {
+                        $('#CIDADE_COBRANCA').append(`<option value="${cidade.id}">${cidade.nome}</option>`);
+                    });
+
+                    // Após carregar as cidades, selecionar a cidade com base no código IBGE armazenado
+                    if (cidadeIbgeTemporario) {
+                        $('#CIDADE_COBRANCA').val(cidadeIbgeTemporario).change();
+                        cidadeIbgeTemporario = null; // Limpar a variável temporária
+                    }
+                }
+            });
+        } else {
+            $('#CIDADE_COBRANCA').attr('disabled', 'disabled');
+        }
+    });
 
 </script>

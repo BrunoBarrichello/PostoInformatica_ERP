@@ -16,12 +16,13 @@ obj/Debug/net6.0/PostoInformatica_ERP.pdb
 obj/Debug/net6.0/PostoInformatica_ERP.dll
 Banco/POSTO.FDB
 *.pdb
-bin/
-obj/
+**/bin/
+**/obj/
 *.props
 *.json
 *.pdb
 *.dll
 *.dll
-bin/Debug/net6.0/PostoInformatica_ERP.dll
+bin/Debug
 Banco/POSTO.FDB
+*.cache
