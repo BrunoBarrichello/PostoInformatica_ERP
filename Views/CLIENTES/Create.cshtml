@@ -13,10 +13,19 @@
     </div>
 }
 
-
 <div class="alert alert-danger" id="div_senha_divergente" style="display:none">
     <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
     As senhas não coincidem! Por favor, verifique.
+</div>
+
+<div class="alert alert-danger" id="div_CNPJ_CPF_utilizado" style="display:none">
+    <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+    CPF/CNPJ já utilizado.
+</div>
+
+<div class="alert alert-success" id="div_CNPJ_CPF_ok" style="display:none">
+    <button type="button" class="btn btn-success btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+    CPF/CNPJ Válidado.
 </div>
 
 <form asp-action="Create" id="vForm_Cadastro">
@@ -43,7 +52,7 @@
                 <div class="row align-items-end">
                     <div class="col-md-4 div-input">
                         <label asp-for="CNPJ_CPF" class="control-label"></label><h11>*</h11>
-                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" required id="CNPJ_CPF" maxlength="14" />
+                        <input asp-for="CNPJ_CPF" class="form-control form-control-sm" required id="CNPJ_CPF" maxlength="14" onblur="verificaCadastro()" />
                         <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
                     </div>
 
@@ -248,16 +257,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 div-input">
-                                <label asp-for="LOGIN" class="control-label"></label><h11>*</h11>
-                                <input asp-for="LOGIN" required autocomplete="new-password" class="form-control form-control-sm" maxlength="20" />
-                                <span asp-validation-for="LOGIN" class="text-danger"></span>
-                            </div>
-                            <div class="col-md-3 div-input">
                                 <label asp-for="SENHA" class="control-label"></label><h11>*</h11>
                                 <input type="password" asp-for="SENHA" required autocomplete="new-password" class="form-control form-control-sm" id="senha_1" maxlength="18" />
                                 <span asp-validation-for="SENHA" class="text-danger"></span>
                             </div>
-                            <div class="col-md-3 div-input">
+                            <div class="col-md-6 div-input">
                                 <label class="control-label">Confirme sua senha</label><h11>*</h11>
                                 <input type="password" required autocomplete="new-password" class="form-control form-control-sm" id="senha_2" maxlength="20" />
                             </div>
@@ -298,6 +302,14 @@
             $("#div_senha_divergente").show();
             $("#senha_1").val("");
             $("#senha_2").val("");
+
+            event.preventDefault();
+        }
+
+        if (cadastroValido == "N") {
+            $("#div_CNPJ_CPF_utilizado").show();
+            $("#CNPJ_CPF").val("");
+            $("#CNPJ_CPF").focus();
 
             event.preventDefault();
         }
@@ -471,5 +483,35 @@
             $('#CIDADE_COBRANCA').attr('disabled', 'disabled');
         }
     });
+
+    var cadastroValido = "S";
+    function verificaCadastro() {
+        if ($("#CNPJ_CPF").val()) {
+            $.ajax({
+                url: "/CLIENTES/verificaCadastro",
+                method: 'GET',
+                data: {
+                    CNPJ_CPF: $("#CNPJ_CPF").val()
+                },
+                success: function (data) {
+                    if (data) {
+                        $("#CNPJ_CPF").focus();
+                        $("#CNPJ_CPF").val("");
+                        $("#div_CNPJ_CPF_utilizado").css("display", "block");
+                        $("#div_CNPJ_CPF_ok").css("display", "none");
+                        
+                        cadastroValido = "N";
+                    }
+
+                    if ($("#div_CNPJ_CPF_utilizado").css("display") == "block" && !data) {
+                        $("#div_CNPJ_CPF_utilizado").css("display", "none");
+                        $("#div_CNPJ_CPF_ok").css("display", "block");
+
+                        cadastroValido = "S";
+                    }
+                }
+            });
+        }
+    }
 
 </script>

@@ -24,36 +24,6 @@ namespace PostoInformatica_ERP.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Entrar(USUARIO usuario)
-        //{
-        //    try
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            USUARIO login = _context.USUARIO.FirstOrDefault(x => x.NOME == usuario.NOME);
-
-        //            if (login != null)
-        //            {
-        //                if (login.SENHA == usuario.SENHA)
-        //                {
-        //                    return RedirectToAction("Index", "Home");
-        //                }
-
-        //            }
-
-        //            TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por favor, tente novamente.";
-        //        }
-
-        //        return View("Index");
-        //    }
-        //    catch (Exception erro)
-        //    {
-        //        TempData["MensagemErro"] = $"Ops, não conseguimos realizar seu login, tente novamente! {erro.Message}";
-        //        return RedirectToAction("Index");
-        //    }
-        //}
-
         // GET: USUARIOS/Details/5
         public async Task<IActionResult> Details(int? id)
         {

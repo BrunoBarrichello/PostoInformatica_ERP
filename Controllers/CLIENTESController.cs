@@ -31,20 +31,20 @@ namespace PostoInformatica_ERP.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    CLIENTES login = _context.Cliente.FirstOrDefault(x => x.LOGIN == clientes.LOGIN);
+                    CLIENTES login = _context.Cliente.FirstOrDefault(x => x.CNPJ_CPF == clientes.CNPJ_CPF);
+
                     if (login != null)
                     {
-                        if (!string.IsNullOrEmpty(login.LOGIN))
+                        if (!string.IsNullOrEmpty(login.CNPJ_CPF))
                         {
                             if (login.SENHA == clientes.SENHA)
                             {
                                 return RedirectToAction("Index", "Home");
                             }
-
                         }
                     }
 
-                    TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por favor, tente novamente.";
+                    TempData["MensagemErro"] = $"CPF/CNPJ e/ou senha inválido(s). Por favor, tente novamente.";
                 }
 
                 return View("Index");
@@ -66,6 +66,7 @@ namespace PostoInformatica_ERP.Controllers
 
             var clientes = await _context.Cliente
                 .FirstOrDefaultAsync(m => m.CNPJ_CPF == id);
+
             if (clientes == null)
             {
                 return NotFound();
@@ -94,26 +95,16 @@ namespace PostoInformatica_ERP.Controllers
             }
 
             CLIENTES dadosCliente = _context.Cliente
-                .FirstOrDefault(x => x.LOGIN == clientes.LOGIN || x.CNPJ_CPF == clientes.CNPJ_CPF);
-
-            
+                .FirstOrDefault(x => x.CNPJ_CPF == clientes.CNPJ_CPF);
 
             if (dadosCliente == null)
             {
-                clientes.OPTANTE_SIMPLES = clientes.OPTANTE_SIMPLES == "S" ? "S" : "N";
-                clientes.COLIGADA = clientes.COLIGADA == "S" ? "S" : "N";
-
                 _context.Add(clientes);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
             List<string> mensagemErro = new List<string>();
-
-            if (dadosCliente.LOGIN == clientes.LOGIN)
-            {
-                mensagemErro.Add("Nome de usuário já utilizado.");
-            }
 
             if (dadosCliente.CNPJ_CPF == clientes.CNPJ_CPF)
             {
@@ -125,6 +116,27 @@ namespace PostoInformatica_ERP.Controllers
             return View(clientes);
         }
 
+        public async Task<JsonResult> verificaCadastro(string CNPJ_CPF)
+        {
+            try
+            {
+                CLIENTES login = await _context.Cliente.FirstOrDefaultAsync(x => x.CNPJ_CPF == CNPJ_CPF && x.SENHA != null);
+
+                if (login != null)
+                {
+                    TempData["MensagemErro"] = "CPF/CNPJ já utilizado.";
+                    return Json(TempData["MensagemErro"]);
+                }
+                
+                return Json(TempData["MensagemErro"]);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos realizar seu login, tente novamente! {erro.Message}";
+                return Json(TempData["MensagemErro"]);
+            }
+        }
+
         // GET: CLIENTES/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -134,6 +146,7 @@ namespace PostoInformatica_ERP.Controllers
             }
 
             var clientes = await _context.Cliente.FindAsync(id);
+
             if (clientes == null)
             {
                 return NotFound();

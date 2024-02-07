@@ -47,14 +47,14 @@
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="cor_texto espaco-top">Digite seu usuário e senha</h4>
+                <h4 class="cor_texto espaco-top">Digite seu CNPJ/CPF e senha</h4>
             </div>
         </div>
         <div class="row mt-5 justify-content-center">
             <div class="col-md-6 div-input">
-                <label asp-for="LOGIN" class="label-input">Usuário:</label>
-                <input asp-for="LOGIN" class="form-control form-control-sm input-login" />
-                <span asp-validation-for="LOGIN" class="text-danger"></span>
+                <label asp-for="CNPJ_CPF" class="label-input">CNPJ/CPF:</label>
+                <input asp-for="CNPJ_CPF" class="form-control form-control-sm input-login" />
+                <span asp-validation-for="CNPJ_CPF" class="text-danger"></span>
             </div>
         </div>
         <div class="row justify-content-center mt-3">
@@ -89,44 +89,4 @@
         </div>
     </div>
 
-    @* <div class="justify-content-center text-center">
-        <img class="img_logo" src="~/img/Posto_Logo_Preto.png" />
-    </div>
-
-    <div class="row justify-content-center text-center">
-        <div class="col-md-12">
-            <div class="input-field">
-                <input required="" type="text" class="input" id="Login" asp-for="LOGIN" autocomplete="new-password" />
-                <label class="label" for="input">Digite seu Email</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center text-center">
-        <div class="col-md-12">
-            <div class="input-field">
-                <input required="" type="password" class="input" id="Senha" asp-for="SENHA" />
-                <label class="label" for="input">Digite sua Senha</label>
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center text-center">
-        <div class="col-md-12">
-            <a href="#" style="font-size:12px">Esqueceu sua senha?</a>
-        </div>
-    </div>
-
-    <button style="z-index:9999" type="submit" class="button type1 login"><span class="btn-txt">ENTRAR</span></button>
-
-    <div class="row mt-2">
-        <div class="col-md-5"><hr /></div>
-
-        <div class="col-md-2"><label class="lbl_cadastrar">OU</label></div>
-
-        <div class="col-md-5"><hr /></div>
-    </div>
-
-    <a style="z-index:9999" type="button" class="button type2 cadastrar" asp-controller="CLIENTES" asp-action="Create"><span class="btn-txt">INSCREVA-SE</span></a>
- *@
 </form>
