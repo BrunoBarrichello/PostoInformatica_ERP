@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PostoInformatica_ERP.Models
 {
+    [Table("OBRAS")]
     public class OBRAS
     {
-
         [Key]
         [Column("INCREMENTO")]
         [Display(Name = "Incremento")]
@@ -126,6 +126,5 @@ namespace PostoInformatica_ERP.Models
         [Column("VALORPERMUTADOANTERIOR")]
         [Display(Name = "Valor Permutado Anterior")]
         public decimal VALORPERMUTADOANTERIOR { get; set; }
-
     }
 }

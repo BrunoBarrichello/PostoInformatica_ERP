@@ -6,7 +6,7 @@ namespace PostoInformatica_ERP.Models
 {
     public class Contexto : DbContext
     {
-        public Contexto(DbContextOptions options) 
+        public Contexto(DbContextOptions options)
             : base(options)
         {
         }
