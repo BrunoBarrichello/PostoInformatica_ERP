@@ -1,83 +1,162 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using PostoInformatica_ERP.Models;
 
 namespace PostoInformatica_ERP.Controllers
 {
     public class OBRASController : Controller
     {
-        // GET: OBRASController
-        public ActionResult Index()
+        private readonly Contexto _context;
+
+        public OBRASController(Contexto context)
+        {
+            _context = context;
+        }
+
+        // GET: OBRAS
+        public async Task<IActionResult> Index()
+        {
+              return _context.OBRAS != null ? 
+                          View(await _context.OBRAS.ToListAsync()) :
+                          Problem("Entity set 'Contexto.OBRAS'  is null.");
+        }
+
+        // GET: OBRAS/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.OBRAS == null)
+            {
+                return NotFound();
+            }
+
+            var oBRAS = await _context.OBRAS
+                .FirstOrDefaultAsync(m => m.INCREMENTO == id);
+            if (oBRAS == null)
+            {
+                return NotFound();
+            }
+
+            return View(oBRAS);
+        }
+
+        // GET: OBRAS/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // GET: OBRASController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: OBRASController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: OBRASController/Create
+        // POST: OBRAS/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<IActionResult> Create([Bind("INCREMENTO,OBRA,DESCRICAO,CLIENTE,ENDERECO,NUMERO,CEP,COMPLEMENTO,REFERENCIA,BAIRRO,CONTATO1,CONTATO2,CIDADE,ESTADO,CEI,CIDADE_DESCRICAO,ISS,CONTRATO,CODIGOGIS,CODIGOGISRC,CONCLUSAO,OBSERVACOES,VALOR_CONTRATO,ISENTA_ISS,OFICIO,RETENCAO,EMPRESA,VALOREMPERMUTA,PERCENTUALPERMUTA,VALORPERMUTADOANTERIOR")] OBRAS oBRAS)
         {
-            try
+            if (ModelState.IsValid)
             {
+                _context.Add(oBRAS);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(oBRAS);
         }
 
-        // GET: OBRASController/Edit/5
-        public ActionResult Edit(int id)
+        // GET: OBRAS/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null || _context.OBRAS == null)
+            {
+                return NotFound();
+            }
+
+            var oBRAS = await _context.OBRAS.FindAsync(id);
+            if (oBRAS == null)
+            {
+                return NotFound();
+            }
+            return View(oBRAS);
         }
 
-        // POST: OBRASController/Edit/5
+        // POST: OBRAS/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("INCREMENTO,OBRA,DESCRICAO,CLIENTE,ENDERECO,NUMERO,CEP,COMPLEMENTO,REFERENCIA,BAIRRO,CONTATO1,CONTATO2,CIDADE,ESTADO,CEI,CIDADE_DESCRICAO,ISS,CONTRATO,CODIGOGIS,CODIGOGISRC,CONCLUSAO,OBSERVACOES,VALOR_CONTRATO,ISENTA_ISS,OFICIO,RETENCAO,EMPRESA,VALOREMPERMUTA,PERCENTUALPERMUTA,VALORPERMUTADOANTERIOR")] OBRAS oBRAS)
         {
-            try
+            if (id != oBRAS.INCREMENTO)
             {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(oBRAS);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!OBRASExists(oBRAS.INCREMENTO))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(oBRAS);
         }
 
-        // GET: OBRASController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: OBRAS/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            if (id == null || _context.OBRAS == null)
+            {
+                return NotFound();
+            }
+
+            var oBRAS = await _context.OBRAS
+                .FirstOrDefaultAsync(m => m.INCREMENTO == id);
+            if (oBRAS == null)
+            {
+                return NotFound();
+            }
+
+            return View(oBRAS);
         }
 
-        // POST: OBRASController/Delete/5
-        [HttpPost]
+        // POST: OBRAS/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            if (_context.OBRAS == null)
             {
-                return RedirectToAction(nameof(Index));
+                return Problem("Entity set 'Contexto.OBRAS'  is null.");
             }
-            catch
+            var oBRAS = await _context.OBRAS.FindAsync(id);
+            if (oBRAS != null)
             {
-                return View();
+                _context.OBRAS.Remove(oBRAS);
             }
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool OBRASExists(int id)
+        {
+          return (_context.OBRAS?.Any(e => e.INCREMENTO == id)).GetValueOrDefault();
         }
     }
 }
